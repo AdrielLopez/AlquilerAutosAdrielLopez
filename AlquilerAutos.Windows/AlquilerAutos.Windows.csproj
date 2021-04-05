@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DEFC840-FBA1-4D1F-8CEE-426695A79D9E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AlquilerAutos.Windows</RootNamespace>
+    <AssemblyName>AlquilerAutos.Windows</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmCombustibles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCombustibles.Designer.cs">
+      <DependentUpon>FrmCombustibles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCombustiblesAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCombustiblesAE.Designer.cs">
+      <DependentUpon>FrmCombustiblesAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLocalidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLocalidades.Designer.cs">
+      <DependentUpon>FrmLocalidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLocalidadesAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLocalidadesAE.Designer.cs">
+      <DependentUpon>FrmLocalidadesAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMarcas.Designer.cs">
+      <DependentUpon>FrmMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMarcasAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMarcasAE.Designer.cs">
+      <DependentUpon>FrmMarcasAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuPrincipal.Designer.cs">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProvincias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProvincias.Designer.cs">
+      <DependentUpon>FrmProvincias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProvinciasAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProvinciasAE.Designer.cs">
+      <DependentUpon>FrmProvinciasAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTipoDeDocumentosAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTipoDeDocumentosAE.Designer.cs">
+      <DependentUpon>FrmTipoDeDocumentosAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTiposDeVehiculosAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTiposDeVehiculosAE.Designer.cs">
+      <DependentUpon>FrmTiposDeVehiculosAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTiposDeVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTiposDeVehiculos.Designer.cs">
+      <DependentUpon>FrmTiposDeVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FrmTiposDeDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTiposDeDocumentos.Designer.cs">
+      <DependentUpon>FrmTiposDeDocumentos.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmCombustibles.resx">
+      <DependentUpon>FrmCombustibles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCombustiblesAE.resx">
+      <DependentUpon>FrmCombustiblesAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLocalidades.resx">
+      <DependentUpon>FrmLocalidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLocalidadesAE.resx">
+      <DependentUpon>FrmLocalidadesAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMarcas.resx">
+      <DependentUpon>FrmMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMarcasAE.resx">
+      <DependentUpon>FrmMarcasAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.resx">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProvincias.resx">
+      <DependentUpon>FrmProvincias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProvinciasAE.resx">
+      <DependentUpon>FrmProvinciasAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTipoDeDocumentosAE.resx">
+      <DependentUpon>FrmTipoDeDocumentosAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTiposDeVehiculos.resx">
+      <DependentUpon>FrmTiposDeVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTiposDeVehiculosAE.resx">
+      <DependentUpon>FrmTiposDeVehiculosAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FrmTiposDeDocumentos.resx">
+      <DependentUpon>FrmTiposDeDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_business_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_business_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_close_pane_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_close_pane_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete_file_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete_file_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_edit_file_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_edit_file_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_globe_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_globe_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_guitar_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_guitar_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_music_library_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_music_library_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_musical_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_musical_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_new_copy_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_new_copy_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_people_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_people_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_print_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_print_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_restart_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_restart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_search_property_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_search_property_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_shutdown_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_shutdown_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlquilerAutos.BL\AlquilerAutos.BL.csproj">
+      <Project>{b49337bb-1643-47a4-99d2-7c33c14abad7}</Project>
+      <Name>AlquilerAutos.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlquilerAutos.Servicios\AlquilerAutos.Servicios.csproj">
+      <Project>{dc559dad-ecc1-4ecf-b35f-b63ae04e5549}</Project>
+      <Name>AlquilerAutos.Servicios</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

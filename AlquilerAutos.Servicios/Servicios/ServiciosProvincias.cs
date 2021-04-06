@@ -37,7 +37,19 @@ namespace AlquilerAutos.Servicios.Servicios
 
         public Provincia GetProvinciaPorId(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _conexionBd = new ConexionBd();
+                _repositorio = new RepositorioProvincias(_conexionBd.AbrirConexion());
+                var provincia = _repositorio.GetProvinciaPorId(id);
+                _conexionBd.CerrarConexion();
+                return provincia;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
         public void Guardar(Provincia provincia)

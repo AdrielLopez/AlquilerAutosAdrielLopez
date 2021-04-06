@@ -151,7 +151,7 @@ namespace AlquilerAutos.DL.Repositorios
             }
             catch (Exception e)
             {
-                throw new Exception("Error al intentar leer las localidades");
+                throw new Exception("Error al intentar leer las provincias");
             }
         }
 

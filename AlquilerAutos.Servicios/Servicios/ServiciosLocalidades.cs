@@ -31,12 +31,20 @@ namespace AlquilerAutos.Servicios.Servicios
             }
         }
 
-        public void Guardar(Localidad localidad)
+        public void Guardar(LocalidadEditDto localidadDto)
         {
             try
             {
                 _conexionBd = new ConexionBd();
                 _repositorio = new RepositorioLocalidades(_conexionBd.AbrirConexion());
+                _repositorioProvincias = new RepositorioProvincias(_conexionBd.AbrirConexion()); 
+                var localidad = new Localidad
+                {
+                    LocalidadId = localidadDto.LocalidadId,
+                    NombreLocalidad = localidadDto.NombreLocalidad,
+                    Provincia = _repositorioProvincias.GetProvinciaPorId(localidadDto.ProvinciaId)
+
+                };
                 _repositorio.Guardar(localidad);
                 _conexionBd.CerrarConexion();
             }
@@ -46,13 +54,22 @@ namespace AlquilerAutos.Servicios.Servicios
             }
         }
 
-        public bool Existe(Localidad localidad)
+        public bool Existe(LocalidadEditDto localidadDto)
         {
             try
             {
                 _conexionBd = new ConexionBd();
                 _repositorio = new RepositorioLocalidades(_conexionBd.AbrirConexion());
+                _repositorioProvincias = new RepositorioProvincias(_conexionBd.AbrirConexion());
+                var localidad = new Localidad
+                {
+                    LocalidadId = localidadDto.LocalidadId,
+                    NombreLocalidad = localidadDto.NombreLocalidad,
+                    Provincia = _repositorioProvincias.GetProvinciaPorId(localidadDto.ProvinciaId)
+
+                };
                 var existe = _repositorio.Existe(localidad);
+                _conexionBd.CerrarConexion();
                 return existe;
             }
             catch (Exception e)
@@ -77,7 +94,7 @@ namespace AlquilerAutos.Servicios.Servicios
             }
         }
 
-        public Localidad GetLocalidadPorId(int id)
+        public LocalidadEditDto GetLocalidadPorId(int id)
         {
             try
             {

@@ -8,10 +8,10 @@ namespace AlquilerAutos.Servicios.Servicios.Facades
     {
         List<LocalidadListDto> GetLocalidades();
 
-        void Guardar(Localidad localidad);
-        bool Existe(Localidad localidad);
+        void Guardar(LocalidadEditDto localidadEditDto);
+        bool Existe(LocalidadEditDto localidad);
         void Borrar(int localidadDtoLocalidadId);
 
-        Localidad GetLocalidadPorId(int id);
+        LocalidadEditDto GetLocalidadPorId(int id);
     }
 }

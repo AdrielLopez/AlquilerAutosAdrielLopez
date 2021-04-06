@@ -151,9 +151,9 @@ namespace AlquilerAutos.DL.Repositorios
             }
         }
 
-        public Localidad GetLocalidadPorId(int id)
+        public LocalidadEditDto GetLocalidadPorId(int id)
         {
-            Localidad localidad = null;
+            LocalidadEditDto localidad = null;
             try
             {
                 string cadenaComando =
@@ -177,13 +177,13 @@ namespace AlquilerAutos.DL.Repositorios
             }
         }
 
-        private Localidad ConstruirLocalidad(SqlDataReader reader)
+        private LocalidadEditDto ConstruirLocalidad(SqlDataReader reader)
         {
 
-            Localidad localidad = new Localidad();
+            var localidad = new LocalidadEditDto();
             localidad.LocalidadId = reader.GetInt32(0);
             localidad.NombreLocalidad = reader.GetString(1);
-            localidad.Provincia = _repositorioProvincias.GetProvinciaPorId(reader.GetInt32(2));
+            localidad.ProvinciaId = reader.GetInt32(2);
             return localidad;
         }
     }

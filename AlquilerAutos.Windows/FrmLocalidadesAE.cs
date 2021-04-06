@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using AlquilerAutos.BL.DTOs.Localidad;
 using AlquilerAutos.BL.Entidades;
 using AlquilerAutos.Servicios.Servicios;
 using AlquilerAutos.Servicios.Servicios.Facades;
@@ -20,7 +21,7 @@ namespace AlquilerAutos.Windows
             if (localidad!=null)
             {
                 txtboxLocalidad.Text = localidad.NombreLocalidad;
-                ProvinciasComboBox.SelectedValue = localidad.Provincia.ProvinciaId;
+                ProvinciasComboBox.SelectedValue = localidad.ProvinciaId;
             }
         }
 
@@ -40,7 +41,7 @@ namespace AlquilerAutos.Windows
             ProvinciasComboBox.SelectedIndex = 0;
         }
 
-        private Localidad localidad;
+        private LocalidadEditDto localidad;
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -48,11 +49,11 @@ namespace AlquilerAutos.Windows
             {
                 if (localidad == null)
                 {
-                    localidad = new Localidad();
+                    localidad = new LocalidadEditDto();
                 }
 
                 localidad.NombreLocalidad = txtboxLocalidad.Text;
-                localidad.Provincia = (Provincia) ProvinciasComboBox.SelectedItem;
+                localidad.ProvinciaId = ((Provincia) ProvinciasComboBox.SelectedItem).ProvinciaId;
                 DialogResult = DialogResult.OK;
 
             }
@@ -77,12 +78,12 @@ namespace AlquilerAutos.Windows
             return valido;
         }
 
-        public Localidad GetLocalidad()
+        public LocalidadEditDto GetLocalidad()
         {
             return localidad;
         }
 
-        public void SetLocalidad(Localidad localidad)
+        public void SetLocalidad(LocalidadEditDto localidad)
         {
             this.localidad = localidad;
         }

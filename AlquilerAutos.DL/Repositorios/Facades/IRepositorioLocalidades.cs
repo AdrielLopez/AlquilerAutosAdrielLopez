@@ -17,6 +17,6 @@ namespace AlquilerAutos.DL.Repositorios.Facades
 
         void Borrar(int id);
 
-        Localidad GetLocalidadPorId(int id);
+        LocalidadEditDto GetLocalidadPorId(int id);
     }
 }

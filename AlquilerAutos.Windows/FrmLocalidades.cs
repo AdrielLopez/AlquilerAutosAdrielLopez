@@ -27,6 +27,7 @@ namespace AlquilerAutos.Windows
         }
 
         private IServiciosLocalidades _servicio;
+        private iServiciosProvincia _serviciosProvincia;
         private List<LocalidadListDto> lista;
 
         private void FrmLocalidades_Load(object sender, EventArgs e)
@@ -35,6 +36,7 @@ namespace AlquilerAutos.Windows
             try
             {
                 _servicio = new ServiciosLocalidades();
+                _serviciosProvincia = new ServiciosProvincias();
                 lista = _servicio.GetLocalidades();
                 MostrarDatosEnGrilla();
             }
@@ -77,25 +79,27 @@ namespace AlquilerAutos.Windows
 
         private void tsNuevo_Click(object sender, EventArgs e)
         {
-            FrmLocalidadesAE frm = new FrmLocalidadesAE();
+             FrmLocalidadesAE frm = new FrmLocalidadesAE();
             frm.Text = "Agregar Localidad";
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.OK)
             {
                 try
                 {
-                    Localidad localidad = frm.GetLocalidad();
-                    if (!_servicio.Existe(localidad))
+                    LocalidadEditDto localidadEditDto = frm.GetLocalidad();
+
+
+                    if (!_servicio.Existe(localidadEditDto))
                     {
-                        _servicio.Guardar(localidad);
-                        DataGridViewRow r = ConstruirFila();
-                        LocalidadListDto localidadDto = new LocalidadListDto
+                        _servicio.Guardar(localidadEditDto);
+                        LocalidadListDto localidadListDto = new LocalidadListDto
                         {
-                            LocalidadId = localidad.LocalidadId,
-                            NombreLocalidad = localidad.NombreLocalidad,
-                            NombreProvincia = localidad.Provincia.NombreProvincia
-                        };
-                        SetearFila(r, localidadDto);
+                            LocalidadId = localidadEditDto.LocalidadId,
+                            NombreLocalidad = localidadEditDto.NombreLocalidad,
+                            NombreProvincia = (_serviciosProvincia.GetProvinciaPorId(localidadEditDto.ProvinciaId)).NombreProvincia
+                    };
+                        DataGridViewRow r = ConstruirFila();
+                        SetearFila(r, localidadListDto);
                         AgregarFila(r);
                         MessageBox.Show("Registro agregado con exito", "Mensaje", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -153,12 +157,12 @@ namespace AlquilerAutos.Windows
             }
 
             DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            LocalidadListDto localidadDto = (LocalidadListDto) r.Tag;
-            LocalidadListDto localidadDtoAuxilia=localidadDto.Clone() as LocalidadListDto;
+            LocalidadListDto localidadListDto = (LocalidadListDto) r.Tag;
+            LocalidadListDto localidadDtoAuxilia= localidadListDto.Clone() as LocalidadListDto;
             FrmLocalidadesAE frm = new FrmLocalidadesAE();
-            Localidad localidad = _servicio.GetLocalidadPorId(localidadDto.LocalidadId);
+            LocalidadEditDto localidadEditDto = _servicio.GetLocalidadPorId(localidadListDto.LocalidadId);
             frm.Text = "Editar Localidad";
-            frm.SetLocalidad(localidad);
+            frm.SetLocalidad(localidadEditDto);
             DialogResult dr = frm.ShowDialog(this);
             if (dr==DialogResult.Cancel)
             {
@@ -167,19 +171,17 @@ namespace AlquilerAutos.Windows
 
             try
             {
-                localidad = frm.GetLocalidad();
+                localidadEditDto = frm.GetLocalidad();
 
 
-                if (!_servicio.Existe(localidad))
+                if (!_servicio.Existe(localidadEditDto))
                 {
-                    _servicio.Guardar(localidad);
-                    localidadDto = new LocalidadListDto
-                    {
-                        LocalidadId = localidad.LocalidadId,
-                        NombreLocalidad = localidad.NombreLocalidad,
-                        NombreProvincia = localidad.Provincia.NombreProvincia
-                    };
-                    SetearFila(r, localidadDto);
+                    _servicio.Guardar(localidadEditDto);
+                    localidadListDto.LocalidadId = localidadEditDto.LocalidadId;
+                    localidadListDto.NombreLocalidad = localidadEditDto.NombreLocalidad;
+                    localidadListDto.NombreProvincia =
+                        (_serviciosProvincia.GetProvinciaPorId(localidadEditDto.ProvinciaId)).NombreProvincia;
+                    SetearFila(r, localidadListDto);
                     MessageBox.Show("Registro agregado con exito", "Mensaje", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }

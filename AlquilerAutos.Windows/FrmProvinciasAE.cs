@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using AlquilerAutos.BL.DTOs.Provincia;
 using AlquilerAutos.BL.Entidades;
 
 namespace AlquilerAutos.Windows
@@ -18,6 +19,7 @@ namespace AlquilerAutos.Windows
         {
             InitializeComponent();
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -34,14 +36,14 @@ namespace AlquilerAutos.Windows
             }
         }
 
-        private Provincia provincia;
+        private ProvinciaEditDto provincia;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarDatos())
             {
                 if (provincia==null)
                 {
-                    provincia = new Provincia();
+                    provincia = new ProvinciaEditDto();
                 }
 
                 provincia.NombreProvincia = txtboxProvincia.Text;
@@ -54,7 +56,7 @@ namespace AlquilerAutos.Windows
         {
             bool valido = true; 
             errorProvider1.Clear();
-            if (string.IsNullOrEmpty(txtboxProvincia.Text))
+            if (string.IsNullOrEmpty(txtboxProvincia.Text) || string.IsNullOrWhiteSpace(txtboxProvincia.Text))
             {
                 valido = false;
                 errorProvider1.SetError(txtboxProvincia, "Debe ingresar una provincia");
@@ -63,7 +65,7 @@ namespace AlquilerAutos.Windows
             return valido;
         }
 
-        public Provincia GetProvincia()
+        public ProvinciaEditDto GetProvincia()
         {
             return provincia;
         }
@@ -72,10 +74,14 @@ namespace AlquilerAutos.Windows
         {
 
         }
-
-        public void SetProvincia(Provincia provincia)
+        public void SetProvincia(ProvinciaEditDto provincia)
         {
             this.provincia = provincia;
+        }
+
+        private void txtboxProvincia_Enter(object sender, EventArgs e)
+        {
+            txtboxProvincia.SelectAll();
         }
     }
 }

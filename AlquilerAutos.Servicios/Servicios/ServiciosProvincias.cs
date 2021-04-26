@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AlquilerAutos.BL.DTOs.Provincia;
 using AlquilerAutos.BL.Entidades;
 using AlquilerAutos.DL;
 using AlquilerAutos.DL.Repositorios;
@@ -18,7 +19,7 @@ namespace AlquilerAutos.Servicios.Servicios
         {
            
         }
-        public List<Provincia> GetProvincias()
+        public List<ProvinciaListDto> GetProvincias()
         {
             try
             {
@@ -35,7 +36,7 @@ namespace AlquilerAutos.Servicios.Servicios
             }
         }
 
-        public Provincia GetProvinciaPorId(int id)
+        public ProvinciaEditDto GetProvinciaPorId(int id)
         {
             try
             {
@@ -52,12 +53,17 @@ namespace AlquilerAutos.Servicios.Servicios
             }
         }
 
-        public void Guardar(Provincia provincia)
+        public void Guardar(ProvinciaEditDto provinciaDto)
         {
             try
             {
                 _conexionBd = new ConexionBd();
                 _repositorio = new RepositorioProvincias(_conexionBd.AbrirConexion());
+                var provincia = new Provincia
+                {
+                    ProvinciaId = provinciaDto.ProvinciaId,
+                    NombreProvincia = provinciaDto.NombreProvincia
+                };
                 _repositorio.Guardar(provincia);
                 _conexionBd.CerrarConexion();
             }
@@ -67,13 +73,13 @@ namespace AlquilerAutos.Servicios.Servicios
             }
         }
 
-        public void Borrar(Provincia provincia)
+        public void Borrar(int id)
         {
             try
             {
                 _conexionBd = new ConexionBd();
                 _repositorio = new RepositorioProvincias(_conexionBd.AbrirConexion());
-                _repositorio.Borrar(provincia);
+                _repositorio.Borrar(id);
                 _conexionBd.CerrarConexion();
             }
             catch (Exception e)
@@ -83,13 +89,19 @@ namespace AlquilerAutos.Servicios.Servicios
             }
         }
 
-        public bool Existe(Provincia provincia)
+        public bool Existe(ProvinciaEditDto provinciaDto)
         {
             try
             {
                 _conexionBd = new ConexionBd();
                 _repositorio = new RepositorioProvincias(_conexionBd.AbrirConexion());
-                var existe =_repositorio.Existe(provincia);
+                var provincia = new Provincia
+                {
+                    ProvinciaId = provinciaDto.ProvinciaId,
+                    NombreProvincia = provinciaDto.NombreProvincia
+                };
+
+                var existe = _repositorio.Existe(provincia);
                 _conexionBd.CerrarConexion();
                 return existe;
             }
@@ -100,15 +112,15 @@ namespace AlquilerAutos.Servicios.Servicios
             }
         }
 
-        public bool EstaRelacionado(Provincia provincia)
+        public bool EstaRelacionado(ProvinciaListDto provinciaListDto)
         {
             try
             {
                 _conexionBd = new ConexionBd();
                 _repositorio = new RepositorioProvincias(_conexionBd.AbrirConexion());
-                var estaRelacionado = _repositorio.EstaRelacionado(provincia);
+                var estaRelacionado = _repositorio.EstaRelacionado(provinciaListDto);
                 _conexionBd.CerrarConexion();
-                return estaRelacionado; 
+                return estaRelacionado;
             }
             catch (Exception e)
             {
@@ -116,21 +128,6 @@ namespace AlquilerAutos.Servicios.Servicios
             }
         }
 
-        public void Editar(Provincia provincia)
-        {
-            try
-            {
-                _conexionBd = new ConexionBd();
-                _repositorio = new RepositorioProvincias(_conexionBd.AbrirConexion());
-                _repositorio.Editar(provincia);
-                _conexionBd.CerrarConexion();
 
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-
-        }
     }
 }

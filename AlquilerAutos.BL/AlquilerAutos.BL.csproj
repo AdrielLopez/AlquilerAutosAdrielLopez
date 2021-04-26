@@ -41,9 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\Cliente\ClienteEditDto.cs" />
+    <Compile Include="DTOs\Cliente\ClienteListDto.cs" />
+    <Compile Include="DTOs\Empleado\EmpleadoEditDto.cs" />
+    <Compile Include="DTOs\Empleado\EmpleadoListDto.cs" />
     <Compile Include="DTOs\Localidad\LocalidadEditDto.cs" />
     <Compile Include="DTOs\Localidad\LocalidadListDto.cs" />
+    <Compile Include="DTOs\Provincia\ProvinciaCantidadLocalidades.cs" />
+    <Compile Include="DTOs\Provincia\ProvinciaEditDto.cs" />
+    <Compile Include="DTOs\Provincia\ProvinciaListDto.cs" />
+    <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Combustible.cs" />
+    <Compile Include="Entidades\Empleado.cs" />
     <Compile Include="Entidades\Localidad.cs" />
     <Compile Include="Entidades\Marca.cs" />
     <Compile Include="Entidades\Provincia.cs" />

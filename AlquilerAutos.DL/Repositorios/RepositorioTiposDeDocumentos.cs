@@ -49,7 +49,26 @@ namespace AlquilerAutos.DL.Repositorios
 
         public TipoDeDocumento GetTipoDeDocumentoPorId(int id)
         {
-            throw new NotImplementedException();
+            TipoDeDocumento tipodocumento = new TipoDeDocumento();
+            try
+            {
+                string cadenaComando = "SELECT TipoDeDocumentoId, Descripcion from TiposDeDocumentos WHERE TipoDeDocumentoId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _conexion);
+                comando.Parameters.AddWithValue("@id", id);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    tipodocumento = ConstruirTipoDeDocumento(reader);
+                    
+                }
+                reader.Close();
+                return tipodocumento;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al intentar leer los documentos");
+            }
         }
 
         public void Borrar(TipoDeDocumento documento)

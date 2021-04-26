@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClientes.Designer.cs">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClientesAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClientesAE.Designer.cs">
+      <DependentUpon>FrmClientesAE.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCombustibles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +69,18 @@
     </Compile>
     <Compile Include="FrmCombustiblesAE.Designer.cs">
       <DependentUpon>FrmCombustiblesAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmpleados.Designer.cs">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmpleadosAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmpleadosAE.Designer.cs">
+      <DependentUpon>FrmEmpleadosAE.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLocalidades.cs">
       <SubType>Form</SubType>
@@ -118,6 +142,7 @@
     <Compile Include="FrmTiposDeVehiculos.Designer.cs">
       <DependentUpon>FrmTiposDeVehiculos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrmTiposDeDocumentos.cs">
@@ -126,11 +151,23 @@
     <Compile Include="FrmTiposDeDocumentos.Designer.cs">
       <DependentUpon>FrmTiposDeDocumentos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmClientes.resx">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClientesAE.resx">
+      <DependentUpon>FrmClientesAE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCombustibles.resx">
       <DependentUpon>FrmCombustibles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCombustiblesAE.resx">
       <DependentUpon>FrmCombustiblesAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmpleados.resx">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmpleadosAE.resx">
+      <DependentUpon>FrmEmpleadosAE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLocalidades.resx">
       <DependentUpon>FrmLocalidades.cs</DependentUpon>
@@ -282,5 +319,6 @@
       <Name>AlquilerAutos.Servicios</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

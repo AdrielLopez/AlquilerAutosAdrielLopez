@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AlquilerAutos.BL.DTOs.Provincia;
 using AlquilerAutos.BL.Entidades;
 using AlquilerAutos.Servicios.Servicios;
 using AlquilerAutos.Servicios.Servicios.Facades;
@@ -26,7 +27,7 @@ namespace AlquilerAutos.Windows
         }
 
         private iServiciosProvincia _servicio;
-        private List<Provincia> _lista;
+        private List<ProvinciaListDto> _lista;
 
         private void FrmProvincias_Load(object sender, EventArgs e)
         {
@@ -59,7 +60,7 @@ namespace AlquilerAutos.Windows
             DatosDataGridView.Rows.Add(r);
         }
 
-        private void SetearFila(DataGridViewRow r, Provincia provincia)
+        private void SetearFila(DataGridViewRow r, ProvinciaListDto provincia)
         {
             r.Cells[cmnProvincia.Index].Value = provincia.NombreProvincia;
             r.Tag = provincia;
@@ -82,12 +83,17 @@ namespace AlquilerAutos.Windows
             {
                 try
                 {
-                    var provincia = frm.GetProvincia();
-                    if (!_servicio.Existe(provincia))
+                    ProvinciaEditDto provinciaEditDto  = frm.GetProvincia();
+                    if (!_servicio.Existe(provinciaEditDto))
                     {
-                        _servicio.Guardar(provincia);
+                        _servicio.Guardar(provinciaEditDto);
                         DataGridViewRow r = ConstruirFila();
-                        SetearFila(r, provincia);
+                        ProvinciaListDto provinciaListDto = new ProvinciaListDto
+                        {
+                            ProvinciaId = provinciaEditDto.ProvinciaId,
+                            NombreProvincia = provinciaEditDto.NombreProvincia
+                        };
+                        SetearFila(r, provinciaListDto);
                         AgregarFila(r);
                         MessageBox.Show("Registro agregado con exito", "Mensaje", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -113,7 +119,7 @@ namespace AlquilerAutos.Windows
             if (DatosDataGridView.SelectedRows.Count>0)
             {
                 var r = DatosDataGridView.SelectedRows[0];
-                Provincia provincia =(Provincia) r.Tag;
+                ProvinciaListDto provincia =(ProvinciaListDto) r.Tag;
                 DialogResult dr =
                     MessageBox.Show($"¿Desea borrar de la lista la provincia de {provincia.NombreProvincia}?",
                         "Confirmar baja", MessageBoxButtons.YesNo,
@@ -124,7 +130,7 @@ namespace AlquilerAutos.Windows
                     {
                         if (!_servicio.EstaRelacionado(provincia))
                         {
-                            _servicio.Borrar(provincia);
+                            _servicio.Borrar(provincia.ProvinciaId);
                             DatosDataGridView.Rows.Remove(r);
                             MessageBox.Show("Registro Borrado", "Mensaje", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information); 
@@ -152,20 +158,28 @@ namespace AlquilerAutos.Windows
             if (DatosDataGridView.SelectedRows.Count>0)
             {
                 var r = DatosDataGridView.SelectedRows[0];
-                Provincia p = (Provincia) r.Tag;
-                Provincia pCopia =(Provincia) p.Clone();
+                ProvinciaListDto p = (ProvinciaListDto) r.Tag;
+                ProvinciaListDto pCopia =(ProvinciaListDto) p.Clone();
+                ProvinciaEditDto provinciaEditDto = new ProvinciaEditDto
+                {
+                    ProvinciaId = p.ProvinciaId,
+                    NombreProvincia = p.NombreProvincia
+                };
                 FrmProvinciasAE frm = new FrmProvinciasAE();
                 frm.Text = "Editar Provincia";
-                frm.SetProvincia(p);
+                frm.SetProvincia(provinciaEditDto);
                 DialogResult dr = frm.ShowDialog(this);
                 if (dr==DialogResult.OK)
                 {
                     try
                     {
-                        p = frm.GetProvincia();
-                        if (!_servicio.Existe(p))
+                        provinciaEditDto = frm.GetProvincia();
+                        if (!_servicio.Existe(provinciaEditDto))
                         {
-                            _servicio.Editar(p);
+                            _servicio.Guardar(provinciaEditDto);
+
+                            p.NombreProvincia = provinciaEditDto.NombreProvincia;
+
                             SetearFila(r, p);
                             MessageBox.Show("Registro Editado", "Mensaje", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);

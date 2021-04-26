@@ -27,7 +27,6 @@ namespace AlquilerAutos.Windows
         }
 
         private IServiciosLocalidades _servicio;
-        private iServiciosProvincia _serviciosProvincia;
         private List<LocalidadListDto> lista;
 
         private void FrmLocalidades_Load(object sender, EventArgs e)
@@ -36,13 +35,25 @@ namespace AlquilerAutos.Windows
             try
             {
                 _servicio = new ServiciosLocalidades();
-                _serviciosProvincia = new ServiciosProvincias();
-                lista = _servicio.GetLocalidades();
-                MostrarDatosEnGrilla();
+                ActualizarGrilla();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ActualizarGrilla()
+        {
+            try
+            {
+                lista = _servicio.GetLista(null);
+                MostrarDatosEnGrilla();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
             }
         }
 
@@ -79,7 +90,7 @@ namespace AlquilerAutos.Windows
 
         private void tsNuevo_Click(object sender, EventArgs e)
         {
-             FrmLocalidadesAE frm = new FrmLocalidadesAE();
+            FrmLocalidadesAE frm = new FrmLocalidadesAE();
             frm.Text = "Agregar Localidad";
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.OK)
@@ -92,12 +103,13 @@ namespace AlquilerAutos.Windows
                     if (!_servicio.Existe(localidadEditDto))
                     {
                         _servicio.Guardar(localidadEditDto);
-                        LocalidadListDto localidadListDto = new LocalidadListDto
-                        {
-                            LocalidadId = localidadEditDto.LocalidadId,
-                            NombreLocalidad = localidadEditDto.NombreLocalidad,
-                            NombreProvincia = (_serviciosProvincia.GetProvinciaPorId(localidadEditDto.ProvinciaId)).NombreProvincia
-                    };
+                        LocalidadListDto localidadListDto = new LocalidadListDto();
+
+                        localidadListDto.LocalidadId = localidadEditDto.LocalidadId;
+                        localidadListDto.NombreLocalidad = localidadEditDto.NombreLocalidad;
+                        localidadListDto.NombreProvincia = localidadEditDto.Provincia.NombreProvincia;
+
+                    
                         DataGridViewRow r = ConstruirFila();
                         SetearFila(r, localidadListDto);
                         AgregarFila(r);
@@ -125,27 +137,37 @@ namespace AlquilerAutos.Windows
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 var r = DatosDataGridView.SelectedRows[0];
-                LocalidadListDto localidadDto = (LocalidadListDto) r.Tag;
+                LocalidadListDto localidad = (LocalidadListDto)r.Tag;
                 DialogResult dr =
-                    MessageBox.Show(
-                        $@"¿Desea borrar el registro seleccionado de la localidad {localidadDto.NombreLocalidad}?",
+                    MessageBox.Show($"¿Desea borrar de la lista la localidad de  {localidad.NombreLocalidad}?",
                         "Confirmar baja", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (dr == DialogResult.No)
+                        MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
                 {
-                   return;
+                    try
+                    {
+                        if (!_servicio.EstaRelacionado(localidad))
+                        {
+                            _servicio.Borrar(localidad.LocalidadId);
+                            DatosDataGridView.Rows.Remove(r);
+                            MessageBox.Show("Registro Borrado", "Mensaje", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Registro relacionado... Baja denegada", "Error", MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                        }
+
+                    }
+                    catch (Exception exception)
+                    {
+
+                        MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
                 }
 
-                try
-                {
-                    _servicio.Borrar(localidadDto.LocalidadId);
-                    DatosDataGridView.Rows.Remove(r);
-                    MessageBox.Show("Registro borrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
         }
 
@@ -179,8 +201,7 @@ namespace AlquilerAutos.Windows
                     _servicio.Guardar(localidadEditDto);
                     localidadListDto.LocalidadId = localidadEditDto.LocalidadId;
                     localidadListDto.NombreLocalidad = localidadEditDto.NombreLocalidad;
-                    localidadListDto.NombreProvincia =
-                        (_serviciosProvincia.GetProvinciaPorId(localidadEditDto.ProvinciaId)).NombreProvincia;
+                    localidadListDto.NombreProvincia = localidadEditDto.Provincia.NombreProvincia;
                     SetearFila(r, localidadListDto);
                     MessageBox.Show("Registro agregado con exito", "Mensaje", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);

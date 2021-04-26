@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
 using AlquilerAutos.BL.DTOs.Localidad;
+using AlquilerAutos.BL.DTOs.Provincia;
 using AlquilerAutos.BL.Entidades;
 using AlquilerAutos.Servicios.Servicios;
 using AlquilerAutos.Servicios.Servicios.Facades;
+using AlquilerAutos.Windows.Helpers;
 
 namespace AlquilerAutos.Windows
 {
@@ -17,30 +19,15 @@ namespace AlquilerAutos.Windows
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            CargarDatosComboLocalidades();
+            Helper.CargarDatosComboProvincias(ref ProvinciasComboBox);
             if (localidad!=null)
             {
                 txtboxLocalidad.Text = localidad.NombreLocalidad;
-                ProvinciasComboBox.SelectedValue = localidad.ProvinciaId;
+                ProvinciasComboBox.SelectedValue = localidad.Provincia.ProvinciaId;
             }
         }
 
-        private void CargarDatosComboLocalidades()
-        {
-            iServiciosProvincia _serviciosProvincia = new ServiciosProvincias();
-            var lista = _serviciosProvincia.GetProvincias();
-            var defaultProvincia = new Provincia
-            {
-                ProvinciaId = 0,
-                NombreProvincia = "Seleccione Provincia"
-            };
-            lista.Insert(0, defaultProvincia);
-            ProvinciasComboBox.DataSource = lista;
-            ProvinciasComboBox.ValueMember = "ProvinciaId";
-            ProvinciasComboBox.DisplayMember = "NombreProvincia";
-            ProvinciasComboBox.SelectedIndex = 0;
-        }
-
+       
         private LocalidadEditDto localidad;
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -53,7 +40,7 @@ namespace AlquilerAutos.Windows
                 }
 
                 localidad.NombreLocalidad = txtboxLocalidad.Text;
-                localidad.ProvinciaId = ((Provincia) ProvinciasComboBox.SelectedItem).ProvinciaId;
+                localidad.Provincia = (ProvinciaListDto) ProvinciasComboBox.SelectedItem;
                 DialogResult = DialogResult.OK;
 
             }

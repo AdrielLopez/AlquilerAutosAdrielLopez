@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AlquilerAutos.BL.DTOs.Provincia;
 
-namespace AlquilerAutos.BL.DTOs.Localidad
+namespace AlquilerAutos.BL.DTOs.Provincia
 {
-    public class LocalidadListDto:ICloneable
+    public class ProvinciaListDto
     {
-        public int LocalidadId { get; set; }
-        public string NombreLocalidad { get; set; }
+        public int ProvinciaId { get; set; }
         public string NombreProvincia { get; set; }
+
         public object Clone()
         {
             return this.MemberwiseClone();

@@ -10,7 +10,7 @@ namespace AlquilerAutos.DL.Repositorios.Facades
 {
     public interface IRepositorioLocalidades
     {
-        List<LocalidadListDto> GetLocalidades();
+        List<LocalidadListDto> GetLista(BL.DTOs.Provincia.ProvinciaListDto provinciaDto);
 
         void Guardar(Localidad localidad);
         bool Existe(Localidad localidad);
@@ -18,5 +18,6 @@ namespace AlquilerAutos.DL.Repositorios.Facades
         void Borrar(int id);
 
         LocalidadEditDto GetLocalidadPorId(int id);
+        bool EstaRelacionado(LocalidadListDto localidadListDto);
     }
 }

@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using AlquilerAutos.BL.DTOs.Localidad;
+using AlquilerAutos.BL.DTOs.Provincia;
 using AlquilerAutos.BL.Entidades;
 using AlquilerAutos.DL.Repositorios.Facades;
 
@@ -24,29 +25,44 @@ namespace AlquilerAutos.DL.Repositorios
             _conexion = conexion;
         }
 
-        public List<LocalidadListDto> GetLocalidades()
+        public List<LocalidadListDto> GetLista(ProvinciaListDto provinciaDto)
         {
             List<LocalidadListDto> lista = new List<LocalidadListDto>();
             try
             {
-                string cadenaComando =
-                    "SELECT LocalidadId, NombreLocalidad, NombreProvincia FROM Localidades" +
-                    " INNER JOIN Provincias ON Localidades.ProvinciaId=Provincias.ProvinciaId";
-                SqlCommand comando = new SqlCommand(cadenaComando, _conexion);
-                SqlDataReader reader = comando.ExecuteReader();
+                string cadenaComando;
+                SqlCommand comando;
+                SqlDataReader reader;
+                if (provinciaDto == null)
+                {
+                    cadenaComando =
+                        "SELECT LocalidadId, NombreLocalidad, NombreProvincia FROM Localidades " +
+                        "INNER JOIN Provincias ON Localidades.ProvinciaId=Provincias.ProvinciaId";
+                    comando = new SqlCommand(cadenaComando, _conexion);
+                    reader = comando.ExecuteReader();
+
+                }
+                else
+                {
+                    cadenaComando =
+                        "SELECT LocalidadId, NombreLocalidad, NombreProvincia FROM Localidades " +
+                        "INNER JOIN Provincias ON Localidades.ProvinciaId=Provincias.ProvinciaId WHERE Localidades.ProvinciaId=@provinciaId";
+                    comando = new SqlCommand(cadenaComando, _conexion);
+                    comando.Parameters.AddWithValue("@provinciaId", provinciaDto.ProvinciaId);
+                    reader = comando.ExecuteReader();
+
+                }
                 while (reader.Read())
                 {
                     var localidadDto = ConstruirLocalidadDto(reader);
                     lista.Add(localidadDto);
-
                 }
                 reader.Close();
                 return lista;
-
             }
             catch (Exception e)
             {
-                throw new Exception("Error al intentar leer las localidades");
+                throw new Exception("Error al intentar leer las ciudades");
             }
         }
 
@@ -177,13 +193,54 @@ namespace AlquilerAutos.DL.Repositorios
             }
         }
 
+        public bool EstaRelacionado(LocalidadListDto localidadListDto)
+        {
+            try
+            {
+                bool estarelacionado = false;
+                var cadenaComando = "SELECT COUNT(*) FROM Empleados WHERE LocalidadId=@id";
+                var comando = new SqlCommand(cadenaComando, _conexion);
+                comando.Parameters.AddWithValue("@id", localidadListDto.LocalidadId);
+                int cantidadRegistros = (int)comando.ExecuteScalar();
+                if (cantidadRegistros > 0)
+                {
+                    estarelacionado = true;
+
+                    return estarelacionado;
+                }
+                else
+                {  cadenaComando = "SELECT COUNT(*) FROM Clientes WHERE LocalidadId=@id";
+                     comando = new SqlCommand(cadenaComando, _conexion);
+                    comando.Parameters.AddWithValue("@id", localidadListDto.LocalidadId);
+                     cantidadRegistros = (int)comando.ExecuteScalar();
+                    if (cantidadRegistros > 0)
+                    {
+                        estarelacionado = true;
+
+                        return estarelacionado;
+                    }
+                }
+
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         private LocalidadEditDto ConstruirLocalidad(SqlDataReader reader)
         {
 
             var localidad = new LocalidadEditDto();
             localidad.LocalidadId = reader.GetInt32(0);
             localidad.NombreLocalidad = reader.GetString(1);
-            localidad.ProvinciaId = reader.GetInt32(2);
+            var provinciaEditDto = _repositorioProvincias.GetProvinciaPorId(reader.GetInt32(2));
+            localidad.Provincia = new ProvinciaListDto()
+            {
+                ProvinciaId = provinciaEditDto.ProvinciaId,
+                NombreProvincia = provinciaEditDto.NombreProvincia
+            };
             return localidad;
         }
     }

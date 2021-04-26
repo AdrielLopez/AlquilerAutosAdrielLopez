@@ -36,6 +36,8 @@
             this.btnTiposDeDocumento = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnLocalidades = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProvincias
@@ -108,12 +110,34 @@
             this.btnLocalidades.UseVisualStyleBackColor = true;
             this.btnLocalidades.Click += new System.EventHandler(this.btnLocalidades_Click);
             // 
+            // btnEmpleados
+            // 
+            this.btnEmpleados.Location = new System.Drawing.Point(41, 264);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(117, 61);
+            this.btnEmpleados.TabIndex = 7;
+            this.btnEmpleados.Text = "Empleados";
+            this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.Location = new System.Drawing.Point(191, 264);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(117, 61);
+            this.btnClientes.TabIndex = 8;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.ControlBox = false;
+            this.Controls.Add(this.btnClientes);
+            this.Controls.Add(this.btnEmpleados);
             this.Controls.Add(this.btnLocalidades);
             this.Controls.Add(this.btnTiposDeDocumento);
             this.Controls.Add(this.btnTiposDeVehiculos);
@@ -121,8 +145,8 @@
             this.Controls.Add(this.btnMarcas);
             this.Controls.Add(this.btnProvincias);
             this.Controls.Add(this.btnClose);
-            this.MaximumSize = new System.Drawing.Size(816, 489);
-            this.MinimumSize = new System.Drawing.Size(816, 489);
+            this.MaximumSize = new System.Drawing.Size(1386, 788);
+            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "FrmMenuPrincipal";
             this.Text = "Menu Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -140,6 +164,8 @@
         private System.Windows.Forms.Button btnTiposDeVehiculos;
         private System.Windows.Forms.Button btnTiposDeDocumento;
         private System.Windows.Forms.Button btnLocalidades;
+        private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button btnClientes;
     }
 }
 

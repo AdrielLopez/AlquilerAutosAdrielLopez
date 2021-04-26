@@ -42,12 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\Facades\IServiciosClientes.cs" />
     <Compile Include="Servicios\Facades\IServiciosCombustible.cs" />
+    <Compile Include="Servicios\Facades\IServiciosEmpleados.cs" />
     <Compile Include="Servicios\Facades\IServiciosLocalidades.cs" />
     <Compile Include="Servicios\Facades\IServiciosMarca.cs" />
     <Compile Include="Servicios\Facades\iServiciosProvincia.cs" />
     <Compile Include="Servicios\Facades\IServiciosTIpoDeDocumento.cs" />
     <Compile Include="Servicios\Facades\IServiciosTipoDeVehiculo.cs" />
+    <Compile Include="Servicios\ServicioClientes.cs" />
+    <Compile Include="Servicios\ServicioEmpleados.cs" />
     <Compile Include="Servicios\ServiciosCombustibles.cs" />
     <Compile Include="Servicios\ServiciosLocalidades.cs" />
     <Compile Include="Servicios\ServiciosMarcas.cs" />

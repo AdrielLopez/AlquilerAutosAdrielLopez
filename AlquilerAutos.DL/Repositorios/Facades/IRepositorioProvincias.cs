@@ -1,18 +1,17 @@
 ﻿using AlquilerAutos.BL.Entidades;
 using System.Collections.Generic;
+using AlquilerAutos.BL.DTOs.Provincia;
 
 namespace AlquilerAutos.DL.Repositorios.Facades
 {
     public interface IRepositorioProvincias
     {
-        List<Provincia> GetProvincias();
+        List<ProvinciaListDto> GetProvincias();
 
-        Provincia GetProvinciaPorId(int id);
+        ProvinciaEditDto GetProvinciaPorId(int id);
         void Guardar(Provincia provincia);
-        void Borrar(Provincia provincia);
+        void Borrar(int id);
         bool Existe(Provincia provincia);
-
-        bool EstaRelacionado(Provincia provincia);
-        void Editar(Provincia provincia);
+        bool EstaRelacionado(ProvinciaListDto provinciaListDto);
     }
 }

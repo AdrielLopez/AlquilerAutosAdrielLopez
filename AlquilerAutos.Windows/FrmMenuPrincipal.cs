@@ -62,5 +62,17 @@ namespace AlquilerAutos.Windows
             FrmLocalidades frm = new FrmLocalidades();
             frm.ShowDialog(this);
         }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            FrmEmpleados frm = new FrmEmpleados();
+            frm.ShowDialog(this);
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            FrmClientes frm = new FrmClientes();
+            frm.ShowDialog(this);
+        }
     }
 }

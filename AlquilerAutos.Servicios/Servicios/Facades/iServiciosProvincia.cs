@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AlquilerAutos.BL.DTOs.Provincia;
 using AlquilerAutos.BL.Entidades;
 
 namespace AlquilerAutos.Servicios.Servicios.Facades
 {
     public interface iServiciosProvincia
     {
-        List<Provincia> GetProvincias();
-        Provincia GetProvinciaPorId(int id);
+        List<ProvinciaListDto> GetProvincias();
+        ProvinciaEditDto GetProvinciaPorId(int id);
 
-        void Guardar(Provincia provincia);
+        void Guardar(ProvinciaEditDto provincia);
 
-        void Borrar(Provincia provincia);
-        bool Existe(Provincia provincia);
-        bool EstaRelacionado(Provincia provincia);
-        void Editar(Provincia provincia);
+        void Borrar(int id);
+        bool Existe(ProvinciaEditDto provincia);
+        bool EstaRelacionado(ProvinciaListDto provinciaListDto);
+
     }
 }

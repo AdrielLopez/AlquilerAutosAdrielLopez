@@ -53,6 +53,7 @@ namespace AlquilerAutos.Windows
             this.txtboxProvincia.Name = "txtboxProvincia";
             this.txtboxProvincia.Size = new System.Drawing.Size(230, 20);
             this.txtboxProvincia.TabIndex = 1;
+            this.txtboxProvincia.Enter += new System.EventHandler(this.txtboxProvincia_Enter);
             // 
             // btnGuardar
             // 

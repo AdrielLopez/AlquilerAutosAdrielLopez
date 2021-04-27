@@ -198,17 +198,19 @@ namespace AlquilerAutos.DL.Repositorios
             {
                 if (empleado.EmpleadoId == 0)
                 {
-                    string cadenaComando = "SELECT * FROM Empleados WHERE Nombre=@nomb";
+                    string cadenaComando = "SELECT * FROM Empleados WHERE TipoDeDocumentoId=@tipodoc AND NroDocumento=@nrodoc";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nomb", empleado.Nombre);
+                    comando.Parameters.AddWithValue("@tipodoc", empleado.TipoDeDocumentoId);
+                    comando.Parameters.AddWithValue("@nrodoc", empleado.NroDocumento);
                     SqlDataReader reader = comando.ExecuteReader();
                     return reader.HasRows;
                 }
                 else
                 {
-                    string cadenaComando = "SELECT * FROM Empleados WHERE Nombre=@nomb AND EmpleadoId<>@empleadoId";
+                    string cadenaComando = "SELECT * FROM Empleados WHERE TipoDeDocumentoId=@tipodoc AND NroDocumento=@nrodoc AND EmpleadoId<>@empleadoId";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nomb", empleado.Nombre);
+                    comando.Parameters.AddWithValue("@tipodoc", empleado.TipoDeDocumentoId);
+                    comando.Parameters.AddWithValue("@nrodoc", empleado.NroDocumento);
                     comando.Parameters.AddWithValue("@empleadoId", empleado.EmpleadoId);
                     SqlDataReader reader = comando.ExecuteReader();
                     return reader.HasRows;

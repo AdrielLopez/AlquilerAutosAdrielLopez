@@ -30,7 +30,19 @@ namespace AlquilerAutos.Servicios.Servicios
 
         public Combustible GetCombustiblePorId(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _conexionBd = new ConexionBd();
+                _repositorio = new RepositorioCombustibles(_conexionBd.AbrirConexion());
+                var combustible = _repositorio.GetCombustiblePorId(id);
+                _conexionBd.CerrarConexion();
+                return combustible;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
         public void Guardar(Combustible combustible)

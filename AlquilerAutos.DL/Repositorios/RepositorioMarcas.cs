@@ -53,7 +53,28 @@ namespace AlquilerAutos.DL.Repositorios
 
         public Marca GetMarcaPorId(int id)
         {
-            throw new NotImplementedException();
+            Marca marca = null;
+            try
+            {
+                string cadenaComando =
+                    "SELECT MarcaId, NombreMarca FROM Marcas WHERE MarcaId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _conexion);
+                comando.Parameters.AddWithValue("@id", id);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    marca = ConstruirMarca(reader);
+                }
+
+                reader.Close();
+                return marca;
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al intentar leer las provincias");
+            }
         }
 
 

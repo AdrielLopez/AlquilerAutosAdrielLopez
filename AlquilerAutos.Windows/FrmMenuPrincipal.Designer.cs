@@ -34,10 +34,12 @@
             this.btnCombustibles = new System.Windows.Forms.Button();
             this.btnTiposDeVehiculos = new System.Windows.Forms.Button();
             this.btnTiposDeDocumento = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnLocalidades = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnAutos = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProvincias
@@ -90,16 +92,6 @@
             this.btnTiposDeDocumento.UseVisualStyleBackColor = true;
             this.btnTiposDeDocumento.Click += new System.EventHandler(this.btnTiposDeDocumento_Click);
             // 
-            // btnClose
-            // 
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(712, 376);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(53, 44);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // btnLocalidades
             // 
             this.btnLocalidades.Location = new System.Drawing.Point(341, 156);
@@ -130,12 +122,44 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(712, 376);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(53, 44);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnAutos
+            // 
+            this.btnAutos.Location = new System.Drawing.Point(341, 264);
+            this.btnAutos.Name = "btnAutos";
+            this.btnAutos.Size = new System.Drawing.Size(117, 61);
+            this.btnAutos.TabIndex = 9;
+            this.btnAutos.Text = "Autos";
+            this.btnAutos.UseVisualStyleBackColor = true;
+            this.btnAutos.Click += new System.EventHandler(this.btnAutos_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(511, 156);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 61);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Alquileres";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAutos);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnEmpleados);
             this.Controls.Add(this.btnLocalidades);
@@ -166,6 +190,8 @@
         private System.Windows.Forms.Button btnLocalidades;
         private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.Button btnAutos;
+        private System.Windows.Forms.Button button1;
     }
 }
 

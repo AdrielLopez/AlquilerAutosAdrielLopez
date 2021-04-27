@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AlquilerAutos.BL.DTOs.Cliente;
+using AlquilerAutos.BL.DTOs.Empleado;
 using AlquilerAutos.BL.DTOs.Localidad;
 using AlquilerAutos.BL.DTOs.Provincia;
 using AlquilerAutos.BL.Entidades;
@@ -64,6 +66,128 @@ namespace AlquilerAutos.Windows.Helpers
             combo.DisplayMember = "Descripcion";
             combo.SelectedIndex = 0;
         }
+
+        public static void CargarDatosComboMarcas(ref ComboBox combo)
+        {
+            IServiciosMarca serviciosMarca = new ServiciosMarcas();
+            var lista = serviciosMarca.GetMarcas();
+            var defaultMarca = new Marca()
+            {
+                MarcaId = 0,
+                NombreMarca = "Seleccione Marca"
+            };
+            lista.Insert(0, defaultMarca);
+            combo.DataSource = lista;
+            combo.ValueMember = "MarcaId";
+            combo.DisplayMember = "NombreMarca";
+            combo.SelectedIndex = 0;
+        }
+
+        internal static EmpleadoEditDto ConvertirEmpleadoListDtoEnEditdto(EmpleadoListDto list)
+        {
+            return new EmpleadoEditDto
+            {
+                EmpleadoId=list.EmpleadoId,
+                Nombre = list.Nombre,
+                Apellido = list.Apellido
+             
+            };
+        }
+
+        public static void CargarDatosComboTiposDeVehiculos(ref ComboBox combo)
+        {
+            IServiciosTipoDeVehiculo serviciosTipoDeVehiculo = new ServiciosTiposDeVehiculos();
+            var lista = serviciosTipoDeVehiculo.GetTipoDeVehiculos();
+            var defaulTipoDeVehiculo = new TipoDeVehiculo()
+            {
+                TipoDeVehiculoId = 0,
+                Descripcion = "Seleccione Vehiculo"
+            };
+            lista.Insert(0, defaulTipoDeVehiculo);
+            combo.DataSource = lista;
+            combo.ValueMember = "TipoDeVehiculoId";
+            combo.DisplayMember = "Descripcion";
+            combo.SelectedIndex = 0;
+        }
+
+        public static void CargarDatosComboCombustibles(ref ComboBox combo)
+        {
+            IServiciosCombustible serviciosCombustible = new ServiciosCombustibles();
+            var lista = serviciosCombustible.GetCombustibles();
+            var defaultCombustible = new Combustible()
+            {
+                CombustibleId = 0,
+                NombreCombustible = "Seleccione Combustible"
+            };
+            lista.Insert(0, defaultCombustible);
+            combo.DataSource = lista;
+            combo.ValueMember = "CombustibleId";
+            combo.DisplayMember = "NombreCombustible";
+            combo.SelectedIndex = 0;
+        }
+
+
+        public static void CargarDatosComboModelos(ref ComboBox combo, Marca marca)
+        {
+            IServiciosAutos serviciosAutos = new ServiciosAutos();
+            var lista = serviciosAutos.GetAuto(marca);
+            var defaultAuto = new Auto()
+            {
+                AutoId = 0,
+                Modelo = "Seleccione Modelo"
+            };
+            lista.Insert(0, defaultAuto);
+            combo.DataSource = lista;
+            combo.ValueMember = "AutoId";
+            combo.DisplayMember = "Modelo";
+            combo.SelectedIndex = 0;
+        }
+
+        public static void CargarDatosComboEmpleados(ref ComboBox combo)
+        {
+            IServiciosEmpleados serviciosEmpleados = new ServicioEmpleados();
+            var lista = serviciosEmpleados.GetLista();
+            var defaultEmpleado = new EmpleadoListDto()
+            {
+                EmpleadoId = 0,
+                Nombre = "Seleccione Empleado"
+            };
+            lista.Insert(0, defaultEmpleado);
+            combo.DataSource = lista;
+            combo.ValueMember = "EmpleadoId";
+            combo.DisplayMember = "Nombre";
+            combo.SelectedIndex = 0;
+        }
+
+        public static void CargarDatosComboClientes(ref ComboBox combo)
+        {
+            IServiciosClientes serviciosClientes = new ServicioClientes();
+            var lista = serviciosClientes.GetLista();
+            var defaultCliente = new ClienteListDto()
+            {
+                ClienteId = 0,
+                Nombre = "Seleccione Cliente"
+            };
+            lista.Insert(0, defaultCliente);
+            combo.DataSource = lista;
+            combo.ValueMember = "ClienteId";
+            combo.DisplayMember = "Nombre";
+            combo.SelectedIndex = 0;
+
+        }
+
+        public static ClienteEditDto ConvertirClienteListDtoEnEditdto(ClienteListDto list)
+        {
+            return new ClienteEditDto
+            {
+                ClienteId = list.ClienteId,
+                Nombre = list.Nombre,
+                Apellido = list.Apellido
+                
+
+            };
+        }
+    }
     }
 
-}
+

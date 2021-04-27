@@ -36,7 +36,19 @@ namespace AlquilerAutos.Servicios.Servicios
 
         public Marca GetMarcaPorId(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _conexionBd = new ConexionBd();
+                _repositorio = new RepositorioMarcas(_conexionBd.AbrirConexion());
+                var marca = _repositorio.GetMarcaPorId(id);
+                _conexionBd.CerrarConexion();
+                return marca;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
         public void Borrar(Marca marca)

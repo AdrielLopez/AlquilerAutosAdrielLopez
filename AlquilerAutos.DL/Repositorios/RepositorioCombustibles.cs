@@ -51,7 +51,28 @@ namespace AlquilerAutos.DL.Repositorios
 
         public Combustible GetCombustiblePorId(int id)
         {
-            throw new NotImplementedException();
+            Combustible combustible = null;
+            try
+            {
+                string cadenaComando =
+                    "SELECT CombustibleId, NombreCombustible FROM Combustibles WHERE CombustibleId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _conexion);
+                comando.Parameters.AddWithValue("@id", id);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    combustible = ConstruirCombustible(reader);
+                }
+
+                reader.Close();
+                return combustible;
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al intentar leer los combustibles");
+            }
         }
 
         public void Borrar(Combustible combustible)

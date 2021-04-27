@@ -50,8 +50,11 @@
     <Compile Include="DTOs\Provincia\ProvinciaCantidadLocalidades.cs" />
     <Compile Include="DTOs\Provincia\ProvinciaEditDto.cs" />
     <Compile Include="DTOs\Provincia\ProvinciaListDto.cs" />
+    <Compile Include="Entidades\Alquiler.cs" />
+    <Compile Include="Entidades\Auto.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Combustible.cs" />
+    <Compile Include="Entidades\Devolucion.cs" />
     <Compile Include="Entidades\Empleado.cs" />
     <Compile Include="Entidades\Localidad.cs" />
     <Compile Include="Entidades\Marca.cs" />

@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\Facades\IServiciosAlquileres.cs" />
+    <Compile Include="Servicios\Facades\IServiciosAutos.cs" />
     <Compile Include="Servicios\Facades\IServiciosClientes.cs" />
     <Compile Include="Servicios\Facades\IServiciosCombustible.cs" />
+    <Compile Include="Servicios\Facades\IServiciosDevolucion.cs" />
     <Compile Include="Servicios\Facades\IServiciosEmpleados.cs" />
     <Compile Include="Servicios\Facades\IServiciosLocalidades.cs" />
     <Compile Include="Servicios\Facades\IServiciosMarca.cs" />
@@ -52,6 +55,8 @@
     <Compile Include="Servicios\Facades\IServiciosTipoDeVehiculo.cs" />
     <Compile Include="Servicios\ServicioClientes.cs" />
     <Compile Include="Servicios\ServicioEmpleados.cs" />
+    <Compile Include="Servicios\ServiciosAlquileres.cs" />
+    <Compile Include="Servicios\ServiciosAutos.cs" />
     <Compile Include="Servicios\ServiciosCombustibles.cs" />
     <Compile Include="Servicios\ServiciosLocalidades.cs" />
     <Compile Include="Servicios\ServiciosMarcas.cs" />

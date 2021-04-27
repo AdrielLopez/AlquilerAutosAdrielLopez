@@ -49,7 +49,28 @@ namespace AlquilerAutos.DL.Repositorios
 
         public TipoDeVehiculo GetTipoDeVehiculoPorId(int id)
         {
-            throw new System.NotImplementedException();
+            TipoDeVehiculo tipovehiculo = null;
+            try
+            {
+                string cadenaComando =
+                    "SELECT TipoDeVehiculoId, Descripcion FROM TiposDeVehiculos WHERE TipoDeVehiculoId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _conexion);
+                comando.Parameters.AddWithValue("@id", id);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    tipovehiculo = ConstruirTipoDeVehiculo(reader);
+                }
+
+                reader.Close();
+                return tipovehiculo;
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al intentar leer los tipo de vehiculos");
+            }
         }
 
         public void Borrar(TipoDeVehiculo vehiculo)

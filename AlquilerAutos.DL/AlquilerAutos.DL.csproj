@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="ConexionBd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\Facades\IRepositorioAlquileres.cs" />
+    <Compile Include="Repositorios\Facades\IRepositorioAutos.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioClientes.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioCombustibles.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioEmpleados.cs" />
@@ -52,6 +54,8 @@
     <Compile Include="Repositorios\Facades\IRepositorioProvincias.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioTiposDeDocumentos.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioTiposDeVehiculos.cs" />
+    <Compile Include="Repositorios\RepositorioAlquileres.cs" />
+    <Compile Include="Repositorios\RepositorioAutos.cs" />
     <Compile Include="Repositorios\RepositorioClientes.cs" />
     <Compile Include="Repositorios\RepositorioCombustibles.cs" />
     <Compile Include="Repositorios\RepositorioEmpleados.cs" />

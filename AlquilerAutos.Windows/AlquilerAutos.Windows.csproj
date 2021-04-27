@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAlquileresAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlquileresAE.Designer.cs">
+      <DependentUpon>FrmAlquileresAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAlquileres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlquileres.Designer.cs">
+      <DependentUpon>FrmAlquileres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutos.Designer.cs">
+      <DependentUpon>FrmAutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAutosAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutosAE.Designer.cs">
+      <DependentUpon>FrmAutosAE.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +93,18 @@
     </Compile>
     <Compile Include="FrmCombustiblesAE.Designer.cs">
       <DependentUpon>FrmCombustiblesAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDevoluciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDevoluciones.Designer.cs">
+      <DependentUpon>FrmDevoluciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDevolucionesAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDevolucionesAE.Designer.cs">
+      <DependentUpon>FrmDevolucionesAE.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEmpleados.cs">
       <SubType>Form</SubType>
@@ -151,6 +187,18 @@
     <Compile Include="FrmTiposDeDocumentos.Designer.cs">
       <DependentUpon>FrmTiposDeDocumentos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmAlquileresAE.resx">
+      <DependentUpon>FrmAlquileresAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAlquileres.resx">
+      <DependentUpon>FrmAlquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutos.resx">
+      <DependentUpon>FrmAutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutosAE.resx">
+      <DependentUpon>FrmAutosAE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +210,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCombustiblesAE.resx">
       <DependentUpon>FrmCombustiblesAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDevoluciones.resx">
+      <DependentUpon>FrmDevoluciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDevolucionesAE.resx">
+      <DependentUpon>FrmDevolucionesAE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>

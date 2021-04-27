@@ -32,7 +32,19 @@ namespace AlquilerAutos.Servicios.Servicios
 
         public TipoDeVehiculo GetTipoDeVehiculoPorId(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _conexionBd = new ConexionBd();
+                _repositorio = new RepositorioTiposDeVehiculos(_conexionBd.AbrirConexion());
+                var tipovehiculo = _repositorio.GetTipoDeVehiculoPorId(id);
+                _conexionBd.CerrarConexion();
+                return tipovehiculo;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
         public void Borrar(TipoDeVehiculo vehiculo)

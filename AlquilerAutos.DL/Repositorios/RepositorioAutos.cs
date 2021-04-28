@@ -250,7 +250,7 @@ namespace AlquilerAutos.DL.Repositorios
                 string cadenaComando = "SELECT        A.AutoId, M.MarcaId, TV.TipoDeVehiculoId, C.CombustibleId, A.Modelo, A.Activo, A.Stock, A.Precio " +
                                        "FROM Autos AS A INNER JOIN Combustibles AS C ON A.CombustibleId = C.CombustibleId " +
                                        "INNER JOIN TiposDeVehiculos AS TV ON A.TipoDeVehiculoId = TV.TipoDeVehiculoId" +
-                                       " INNER JOIN Marcas AS M ON A.MarcaId = M.MarcaId WHERE M.MarcaId=@id";
+                                       " INNER JOIN Marcas AS M ON A.MarcaId = M.MarcaId WHERE M.MarcaId=@id AND A.Stock>0";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", marca.MarcaId);
                 SqlDataReader reader = comando.ExecuteReader();

@@ -30,21 +30,21 @@ namespace AlquilerAutos.Windows
         private void InitializeComponent()
         {
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsNuevo = new System.Windows.Forms.ToolStripButton();
-            this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.BuscarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.cmnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnLocalidadId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnProvinciaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsNuevo = new System.Windows.Forms.ToolStripButton();
+            this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BuscarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,34 @@ namespace AlquilerAutos.Windows
             this.DatosDataGridView.Size = new System.Drawing.Size(800, 396);
             this.DatosDataGridView.TabIndex = 7;
             // 
+            // cmnNombre
+            // 
+            this.cmnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnNombre.HeaderText = "Nombre";
+            this.cmnNombre.Name = "cmnNombre";
+            this.cmnNombre.ReadOnly = true;
+            // 
+            // cmnApellido
+            // 
+            this.cmnApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnApellido.HeaderText = "Apellido";
+            this.cmnApellido.Name = "cmnApellido";
+            this.cmnApellido.ReadOnly = true;
+            // 
+            // cmnLocalidadId
+            // 
+            this.cmnLocalidadId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnLocalidadId.HeaderText = "Localidad";
+            this.cmnLocalidadId.Name = "cmnLocalidadId";
+            this.cmnLocalidadId.ReadOnly = true;
+            // 
+            // cmnProvinciaId
+            // 
+            this.cmnProvinciaId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnProvinciaId.HeaderText = "Provincia";
+            this.cmnProvinciaId.Name = "cmnProvinciaId";
+            this.cmnProvinciaId.ReadOnly = true;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -87,21 +115,6 @@ namespace AlquilerAutos.Windows
             this.toolStrip1.Size = new System.Drawing.Size(800, 54);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
             // 
             // tsNuevo
             // 
@@ -136,6 +149,11 @@ namespace AlquilerAutos.Windows
             this.EditarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.EditarToolStripButton.Click += new System.EventHandler(this.EditarToolStripButton_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
+            // 
             // BuscarToolStripButton
             // 
             this.BuscarToolStripButton.Image = global::AlquilerAutos.Windows.Properties.Resources.icons8_search_property_32;
@@ -156,6 +174,11 @@ namespace AlquilerAutos.Windows
             this.ActualizarToolStripButton.Text = "Actualizar";
             this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
+            // 
             // ImprimirToolStripButton
             // 
             this.ImprimirToolStripButton.Image = global::AlquilerAutos.Windows.Properties.Resources.icons8_print_32;
@@ -165,6 +188,11 @@ namespace AlquilerAutos.Windows
             this.ImprimirToolStripButton.Size = new System.Drawing.Size(57, 51);
             this.ImprimirToolStripButton.Text = "Imprimir";
             this.ImprimirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
             // 
             // CerrarToolStripButton
             // 
@@ -177,43 +205,17 @@ namespace AlquilerAutos.Windows
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
             // 
-            // cmnNombre
-            // 
-            this.cmnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnNombre.HeaderText = "Nombre";
-            this.cmnNombre.Name = "cmnNombre";
-            this.cmnNombre.ReadOnly = true;
-            // 
-            // cmnApellido
-            // 
-            this.cmnApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnApellido.HeaderText = "Apellido";
-            this.cmnApellido.Name = "cmnApellido";
-            this.cmnApellido.ReadOnly = true;
-            // 
-            // cmnLocalidadId
-            // 
-            this.cmnLocalidadId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnLocalidadId.HeaderText = "Localidad";
-            this.cmnLocalidadId.Name = "cmnLocalidadId";
-            this.cmnLocalidadId.ReadOnly = true;
-            // 
-            // cmnProvinciaId
-            // 
-            this.cmnProvinciaId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnProvinciaId.HeaderText = "Provincia";
-            this.cmnProvinciaId.Name = "cmnProvinciaId";
-            this.cmnProvinciaId.ReadOnly = true;
-            // 
             // FrmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FrmEmpleados";
             this.Text = "FrmEmpleados";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).EndInit();
             this.toolStrip1.ResumeLayout(false);

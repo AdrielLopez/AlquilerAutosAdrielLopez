@@ -103,6 +103,7 @@ namespace AlquilerAutos.Windows
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 189);
+            this.ControlBox = false;
             this.Controls.Add(this.labelProvincia);
             this.Controls.Add(this.ProvinciasComboBox);
             this.Controls.Add(this.btnCancelar);
@@ -110,6 +111,7 @@ namespace AlquilerAutos.Windows
             this.Controls.Add(this.txtboxLocalidad);
             this.Controls.Add(this.labelLocalidad);
             this.Name = "FrmLocalidadesAE";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLocalidadesAE";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

@@ -307,6 +307,7 @@ namespace AlquilerAutos.Windows
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 514);
+            this.ControlBox = false;
             this.Controls.Add(this.ApellidoTextBox);
             this.Controls.Add(this.NombreTextBox);
             this.Controls.Add(this.groupBox3);
@@ -317,6 +318,7 @@ namespace AlquilerAutos.Windows
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Name = "FrmEmpleadosAE";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEmpleadosAE";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

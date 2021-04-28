@@ -48,6 +48,7 @@
     <Compile Include="Repositorios\Facades\IRepositorioAutos.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioClientes.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioCombustibles.cs" />
+    <Compile Include="Repositorios\Facades\IRepositorioDevoluciones.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioEmpleados.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioLocalidades.cs" />
     <Compile Include="Repositorios\Facades\IRepositorioMarcas.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Repositorios\RepositorioAutos.cs" />
     <Compile Include="Repositorios\RepositorioClientes.cs" />
     <Compile Include="Repositorios\RepositorioCombustibles.cs" />
+    <Compile Include="Repositorios\RepositorioDevoluciones.cs" />
     <Compile Include="Repositorios\RepositorioEmpleados.cs" />
     <Compile Include="Repositorios\RepositorioLocalidades.cs" />
     <Compile Include="Repositorios\RepositorioMarcas.cs" />

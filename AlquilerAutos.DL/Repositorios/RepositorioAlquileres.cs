@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AlquilerAutos.BL.DTOs.Cliente;
 using AlquilerAutos.BL.Entidades;
 using AlquilerAutos.DL.Repositorios.Facades;
 
@@ -56,7 +57,7 @@ namespace AlquilerAutos.DL.Repositorios
             }
             catch (Exception e)
             {
-                throw new Exception("Error al intentar leer el Auto");
+                throw new Exception("Error al intentar leer el Alquiler");
             }
         }
 
@@ -182,6 +183,50 @@ namespace AlquilerAutos.DL.Repositorios
                 string cadenaComando = "SELECT        AL.AlquilerId, a.AutoId, C.ClienteId, E.EmpleadoId, AL.Fecha, AL.FechaLimite, AL.Precio FROM Alquileres AS AL INNER JOIN " +
                                        "Autos AS a ON AL.AutoId = a.AutoId INNER JOIN Clientes AS C ON AL.ClienteId = C.ClienteId INNER JOIN Empleados AS E ON AL.EmpleadoId = E.EmpleadoId";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    var Auto = ConstruirAlquiler(reader);
+                    lista.Add(Auto);
+                }
+
+                reader.Close();
+                return lista;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void EditarStock(Auto alquilerAuto)
+        {
+            try
+            {
+                string cadenaComando = "UPDATE Autos SET Stock=Stock +1 where AutoId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
+                comando.Parameters.AddWithValue("@id", alquilerAuto.AutoId);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public List<Alquiler> GetAlquiler(ClienteListDto cliente)
+        {
+            List<Alquiler> lista = new List<Alquiler>();
+            try
+            {
+                string cadenaComando = "SELECT        AL.AlquilerId, a.AutoId, C.ClienteId, E.EmpleadoId, AL.Fecha, AL.FechaLimite, AL.Precio FROM Alquileres AS AL INNER JOIN " +
+                                       "Autos AS a ON AL.AutoId = a.AutoId INNER JOIN Clientes AS C ON AL.ClienteId = C.ClienteId INNER JOIN Empleados AS E ON AL.EmpleadoId = E.EmpleadoId WHERE C.ClienteId=@id AND AL.AlquilerId NOT IN (" +
+                                       "SELECT AlquilerId FROM Devoluciones)";
+                SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
+                comando.Parameters.AddWithValue("@id", cliente.ClienteId);
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {

@@ -187,6 +187,16 @@ namespace AlquilerAutos.Windows.Helpers
 
             };
         }
+
+        public static void CargarDatosComboAlquileres(ref ComboBox combo)
+        {
+            IServiciosAlquileres serviciosAlquileres = new ServiciosAlquileres();
+            var lista = serviciosAlquileres.GetAlquiler();
+            combo.DataSource = lista;
+            combo.ValueMember = "AlquilerId";
+            combo.DisplayMember = "AlquilerId";
+            combo.SelectedIndex = 0;
+        }
     }
     }
 

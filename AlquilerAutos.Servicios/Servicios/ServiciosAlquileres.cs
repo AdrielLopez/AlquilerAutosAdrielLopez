@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AlquilerAutos.BL.DTOs.Cliente;
 using AlquilerAutos.BL.Entidades;
 using AlquilerAutos.DL;
 using AlquilerAutos.DL.Repositorios;
@@ -59,9 +60,9 @@ namespace AlquilerAutos.Servicios.Servicios
                 _repositorioEmpleados = new RepositorioEmpleados(_conexionBd.AbrirConexion());
                 _repositorio = new RepositorioAlquileres(_conexionBd.AbrirConexion(), _repositorioAutos,
                     _repositorioClientes, _repositorioEmpleados);
-                var auto = _repositorio.GetAlquilerPorId(id);
+                var alquiler = _repositorio.GetAlquilerPorId(id);
                 _conexionBd.CerrarConexion();
-                return auto;
+                return alquiler;
             }
             catch (Exception e)
             {
@@ -132,6 +133,23 @@ namespace AlquilerAutos.Servicios.Servicios
             }
             catch (Exception e)
             {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Alquiler> GetAlquiler(ClienteListDto cliente)
+        {
+            try
+            {
+                _conexionBd = new ConexionBd();
+                _repositorio = new RepositorioAlquileres(_conexionBd.AbrirConexion());
+                var lista = _repositorio.GetAlquiler(cliente);
+                _conexionBd.CerrarConexion();
+                return lista;
+            }
+            catch (Exception e)
+            {
+
                 throw new Exception(e.Message);
             }
         }

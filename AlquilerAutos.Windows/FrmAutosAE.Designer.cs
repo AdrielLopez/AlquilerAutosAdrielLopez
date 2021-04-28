@@ -31,6 +31,8 @@ namespace AlquilerAutos.Windows
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PrecioTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.StockTextBox = new System.Windows.Forms.TextBox();
             this.ModeloTextBox = new System.Windows.Forms.TextBox();
             this.CombustibleComboBox = new System.Windows.Forms.ComboBox();
@@ -44,8 +46,6 @@ namespace AlquilerAutos.Windows
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.PrecioTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,22 @@ namespace AlquilerAutos.Windows
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Auto";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // PrecioTextBox
+            // 
+            this.PrecioTextBox.Location = new System.Drawing.Point(338, 139);
+            this.PrecioTextBox.Name = "PrecioTextBox";
+            this.PrecioTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PrecioTextBox.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(292, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Precio:";
             // 
             // StockTextBox
             // 
@@ -179,31 +195,17 @@ namespace AlquilerAutos.Windows
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(292, 142);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Precio:";
-            // 
-            // PrecioTextBox
-            // 
-            this.PrecioTextBox.Location = new System.Drawing.Point(338, 139);
-            this.PrecioTextBox.Name = "PrecioTextBox";
-            this.PrecioTextBox.Size = new System.Drawing.Size(100, 20);
-            this.PrecioTextBox.TabIndex = 10;
-            // 
             // FrmAutosAE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 304);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmAutosAE";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAutosAE";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

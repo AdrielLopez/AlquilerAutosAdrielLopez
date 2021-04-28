@@ -86,5 +86,11 @@ namespace AlquilerAutos.Windows
             FrmAlquileres frm = new FrmAlquileres();
             frm.ShowDialog(this);
         }
+
+        private void btnDevoluciones_Click(object sender, EventArgs e)
+        {
+            FrmDevoluciones frm = new FrmDevoluciones();
+            frm.ShowDialog(this);
+        }
     }
 }

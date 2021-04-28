@@ -368,6 +368,10 @@
       <Project>{b49337bb-1643-47a4-99d2-7c33c14abad7}</Project>
       <Name>AlquilerAutos.BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AlquilerAutos.DL\AlquilerAutos.DL.csproj">
+      <Project>{93A2435F-E350-423C-915F-BEBB8D827BF7}</Project>
+      <Name>AlquilerAutos.DL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AlquilerAutos.Servicios\AlquilerAutos.Servicios.csproj">
       <Project>{dc559dad-ecc1-4ecf-b35f-b63ae04e5549}</Project>
       <Name>AlquilerAutos.Servicios</Name>

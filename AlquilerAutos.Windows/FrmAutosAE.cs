@@ -82,7 +82,32 @@ namespace AlquilerAutos.Windows
                 valido = false;
                 errorProvider1.SetError(CombustibleComboBox, "Debe seleccionar un tipo de combustible");
             }
-            
+
+            int stock = 0;
+            double precio = 0;
+            if (!int.TryParse(StockTextBox.Text, out stock))
+            {
+                valido = false;
+                errorProvider1.SetError(StockTextBox,"El stock debe ser un numero");
+            }
+
+            if (stock<=0)
+            {
+                valido = false;
+                errorProvider1.SetError(StockTextBox,"El stock debe ser mayor a 0 ");
+            }
+
+            if (!double.TryParse(PrecioTextBox.Text, out precio))
+            {
+                valido = false;
+                errorProvider1.SetError(PrecioTextBox,"El precio debe ser un numero");
+            }
+
+            if (precio<=0)
+            {
+                valido = false;
+                errorProvider1.SetError(PrecioTextBox,"El precio debe ser mayor a 0");
+            }
 
             return valido;
 

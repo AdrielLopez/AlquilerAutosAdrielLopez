@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AlquilerAutos.BL.DTOs.Cliente;
 using AlquilerAutos.BL.Entidades;
 
 namespace AlquilerAutos.DL.Repositorios.Facades
@@ -17,5 +18,7 @@ namespace AlquilerAutos.DL.Repositorios.Facades
         bool Existe(Alquiler alquiler);
         bool EstaRelacionado(Alquiler alquiler);
         List<Alquiler> GetAlquiler();
+        void EditarStock(Auto alquilerAuto);
+        List<Alquiler> GetAlquiler(ClienteListDto cliente);
     }
 }

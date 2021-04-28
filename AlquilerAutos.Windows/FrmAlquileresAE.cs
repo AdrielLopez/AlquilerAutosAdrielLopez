@@ -161,5 +161,10 @@ namespace AlquilerAutos.Windows
                 FechaLimiteDateTime.Enabled = false;
             }
         }
+
+        private void FrmAlquileresAE_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

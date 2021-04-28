@@ -34,6 +34,12 @@ namespace AlquilerAutos.Windows
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnTipoDeVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsNuevo = new System.Windows.Forms.ToolStripButton();
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -41,12 +47,6 @@ namespace AlquilerAutos.Windows
             this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.cmnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnTipoDeVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +106,47 @@ namespace AlquilerAutos.Windows
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
+            // 
+            // cmnMarca
+            // 
+            this.cmnMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnMarca.HeaderText = "Marca";
+            this.cmnMarca.Name = "cmnMarca";
+            this.cmnMarca.ReadOnly = true;
+            // 
+            // cmnTipoDeVehiculo
+            // 
+            this.cmnTipoDeVehiculo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnTipoDeVehiculo.HeaderText = "TipoDeVehiculo";
+            this.cmnTipoDeVehiculo.Name = "cmnTipoDeVehiculo";
+            this.cmnTipoDeVehiculo.ReadOnly = true;
+            // 
+            // cmnModelo
+            // 
+            this.cmnModelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnModelo.HeaderText = "Modelo";
+            this.cmnModelo.Name = "cmnModelo";
+            this.cmnModelo.ReadOnly = true;
+            // 
+            // cmnCombustible
+            // 
+            this.cmnCombustible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnCombustible.HeaderText = "Combustible";
+            this.cmnCombustible.Name = "cmnCombustible";
+            this.cmnCombustible.ReadOnly = true;
+            // 
+            // cmnStock
+            // 
+            this.cmnStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnStock.HeaderText = "Stock";
+            this.cmnStock.Name = "cmnStock";
+            this.cmnStock.ReadOnly = true;
+            // 
+            // cmnPrecio
+            // 
+            this.cmnPrecio.HeaderText = "Precio";
+            this.cmnPrecio.Name = "cmnPrecio";
+            this.cmnPrecio.ReadOnly = true;
             // 
             // tsNuevo
             // 
@@ -181,56 +222,18 @@ namespace AlquilerAutos.Windows
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
             // 
-            // cmnMarca
-            // 
-            this.cmnMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnMarca.HeaderText = "Marca";
-            this.cmnMarca.Name = "cmnMarca";
-            this.cmnMarca.ReadOnly = true;
-            // 
-            // cmnTipoDeVehiculo
-            // 
-            this.cmnTipoDeVehiculo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnTipoDeVehiculo.HeaderText = "TipoDeVehiculo";
-            this.cmnTipoDeVehiculo.Name = "cmnTipoDeVehiculo";
-            this.cmnTipoDeVehiculo.ReadOnly = true;
-            // 
-            // cmnModelo
-            // 
-            this.cmnModelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnModelo.HeaderText = "Modelo";
-            this.cmnModelo.Name = "cmnModelo";
-            this.cmnModelo.ReadOnly = true;
-            // 
-            // cmnCombustible
-            // 
-            this.cmnCombustible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnCombustible.HeaderText = "Combustible";
-            this.cmnCombustible.Name = "cmnCombustible";
-            this.cmnCombustible.ReadOnly = true;
-            // 
-            // cmnStock
-            // 
-            this.cmnStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnStock.HeaderText = "Stock";
-            this.cmnStock.Name = "cmnStock";
-            this.cmnStock.ReadOnly = true;
-            // 
-            // cmnPrecio
-            // 
-            this.cmnPrecio.HeaderText = "Precio";
-            this.cmnPrecio.Name = "cmnPrecio";
-            this.cmnPrecio.ReadOnly = true;
-            // 
             // FrmAutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FrmAutos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "FrmAutos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmAutos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).EndInit();
             this.toolStrip1.ResumeLayout(false);

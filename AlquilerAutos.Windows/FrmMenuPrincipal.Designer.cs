@@ -40,11 +40,12 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAutos = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnDevoluciones = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProvincias
             // 
-            this.btnProvincias.Location = new System.Drawing.Point(41, 59);
+            this.btnProvincias.Location = new System.Drawing.Point(41, 32);
             this.btnProvincias.Name = "btnProvincias";
             this.btnProvincias.Size = new System.Drawing.Size(117, 61);
             this.btnProvincias.TabIndex = 1;
@@ -54,7 +55,7 @@
             // 
             // btnMarcas
             // 
-            this.btnMarcas.Location = new System.Drawing.Point(191, 59);
+            this.btnMarcas.Location = new System.Drawing.Point(222, 157);
             this.btnMarcas.Name = "btnMarcas";
             this.btnMarcas.Size = new System.Drawing.Size(117, 61);
             this.btnMarcas.TabIndex = 2;
@@ -64,7 +65,7 @@
             // 
             // btnCombustibles
             // 
-            this.btnCombustibles.Location = new System.Drawing.Point(341, 59);
+            this.btnCombustibles.Location = new System.Drawing.Point(41, 262);
             this.btnCombustibles.Name = "btnCombustibles";
             this.btnCombustibles.Size = new System.Drawing.Size(117, 61);
             this.btnCombustibles.TabIndex = 3;
@@ -74,7 +75,7 @@
             // 
             // btnTiposDeVehiculos
             // 
-            this.btnTiposDeVehiculos.Location = new System.Drawing.Point(41, 156);
+            this.btnTiposDeVehiculos.Location = new System.Drawing.Point(222, 262);
             this.btnTiposDeVehiculos.Name = "btnTiposDeVehiculos";
             this.btnTiposDeVehiculos.Size = new System.Drawing.Size(117, 61);
             this.btnTiposDeVehiculos.TabIndex = 4;
@@ -84,7 +85,7 @@
             // 
             // btnTiposDeDocumento
             // 
-            this.btnTiposDeDocumento.Location = new System.Drawing.Point(191, 156);
+            this.btnTiposDeDocumento.Location = new System.Drawing.Point(493, 157);
             this.btnTiposDeDocumento.Name = "btnTiposDeDocumento";
             this.btnTiposDeDocumento.Size = new System.Drawing.Size(117, 61);
             this.btnTiposDeDocumento.TabIndex = 5;
@@ -94,7 +95,7 @@
             // 
             // btnLocalidades
             // 
-            this.btnLocalidades.Location = new System.Drawing.Point(341, 156);
+            this.btnLocalidades.Location = new System.Drawing.Point(222, 32);
             this.btnLocalidades.Name = "btnLocalidades";
             this.btnLocalidades.Size = new System.Drawing.Size(117, 61);
             this.btnLocalidades.TabIndex = 6;
@@ -104,7 +105,7 @@
             // 
             // btnEmpleados
             // 
-            this.btnEmpleados.Location = new System.Drawing.Point(41, 264);
+            this.btnEmpleados.Location = new System.Drawing.Point(668, 32);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(117, 61);
             this.btnEmpleados.TabIndex = 7;
@@ -114,7 +115,7 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(191, 264);
+            this.btnClientes.Location = new System.Drawing.Point(493, 32);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(117, 61);
             this.btnClientes.TabIndex = 8;
@@ -134,7 +135,7 @@
             // 
             // btnAutos
             // 
-            this.btnAutos.Location = new System.Drawing.Point(341, 264);
+            this.btnAutos.Location = new System.Drawing.Point(41, 157);
             this.btnAutos.Name = "btnAutos";
             this.btnAutos.Size = new System.Drawing.Size(117, 61);
             this.btnAutos.TabIndex = 9;
@@ -144,7 +145,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(511, 156);
+            this.button1.Location = new System.Drawing.Point(493, 262);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 61);
             this.button1.TabIndex = 10;
@@ -152,12 +153,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnDevoluciones
+            // 
+            this.btnDevoluciones.Location = new System.Drawing.Point(668, 262);
+            this.btnDevoluciones.Name = "btnDevoluciones";
+            this.btnDevoluciones.Size = new System.Drawing.Size(117, 61);
+            this.btnDevoluciones.TabIndex = 11;
+            this.btnDevoluciones.Text = "Devoluciones";
+            this.btnDevoluciones.UseVisualStyleBackColor = true;
+            this.btnDevoluciones.Click += new System.EventHandler(this.btnDevoluciones_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(819, 452);
             this.ControlBox = false;
+            this.Controls.Add(this.btnDevoluciones);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAutos);
             this.Controls.Add(this.btnClientes);
@@ -169,11 +181,9 @@
             this.Controls.Add(this.btnMarcas);
             this.Controls.Add(this.btnProvincias);
             this.Controls.Add(this.btnClose);
-            this.MaximumSize = new System.Drawing.Size(1386, 788);
-            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "FrmMenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.ResumeLayout(false);
 
@@ -192,6 +202,7 @@
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnAutos;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDevoluciones;
     }
 }
 

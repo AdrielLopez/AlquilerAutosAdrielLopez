@@ -17,5 +17,6 @@ namespace AlquilerAutos.Servicios.Servicios.Facades
         bool Existe(Auto auto);
         bool EstaRelacionado(Auto auto);
         List<Auto> GetAuto(Marca marca);
+        List<Auto> GetAuto(Auto auto);
     }
 }

@@ -12,5 +12,6 @@ namespace AlquilerAutos.DL.Repositorios.Facades
         bool Existe(Combustible combustible);
         bool EstaRelacionado(Combustible combustible);
         void Editar(Combustible combustible);
+        List<Combustible> GetCombustibles(Auto auto);
     }
 }

@@ -37,7 +37,7 @@ namespace AlquilerAutos.DL.Repositorios
             List<Auto> lista = new List<Auto>();
             try
             {
-                string cadenaComando = "SELECT        A.AutoId, M.MarcaId, TV.TipoDeVehiculoId, C.CombustibleId, A.Modelo, A.Activo, A.Stock , A.Precio " +
+                string cadenaComando = "SELECT        A.AutoId, M.MarcaId, TV.TipoDeVehiculoId, C.CombustibleId, A.Modelo, A.Activo , A.Precio, A.Patente " +
                                        "FROM Autos AS A INNER JOIN Combustibles AS C ON A.CombustibleId = C.CombustibleId " +
                                        "INNER JOIN TiposDeVehiculos AS TV ON A.TipoDeVehiculoId = TV.TipoDeVehiculoId" +
                                        " INNER JOIN Marcas AS M ON A.MarcaId = M.MarcaId";
@@ -73,8 +73,9 @@ namespace AlquilerAutos.DL.Repositorios
             auto.combustible = repositorioCombustibles.GetCombustiblePorId(reader.GetInt32(3));
             auto.Modelo = reader.GetString(4);
             auto.Activo = reader.GetBoolean(5);
-            auto.Stock = reader.GetInt32(6);
-            auto.Precio =(double) reader.GetDecimal(7);
+            //auto.Stock = reader.GetInt32(6);
+            auto.Precio =(double) reader.GetDecimal(6);
+            auto.Patente = reader.GetString(7);
             return auto;
 
         }
@@ -86,15 +87,15 @@ namespace AlquilerAutos.DL.Repositorios
                 try
                 {
                     string cadenaComando = "INSERT INTO Autos VALUES(@marcaId, @tipovehiculoId, @modelo, @combustibleId," +
-                                           "@activo, @stock, @precio)";
+                                           "@activo, @precio, @patente)";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                     comando.Parameters.AddWithValue("@marcaId", auto.marca.MarcaId);
                     comando.Parameters.AddWithValue("@tipovehiculoId", auto.tipodevehiculo.TipoDeVehiculoId);
                     comando.Parameters.AddWithValue("@modelo", auto.Modelo);
                     comando.Parameters.AddWithValue("@combustibleId", auto.combustible.CombustibleId);
                     comando.Parameters.AddWithValue("@activo", auto.Activo);
-                    comando.Parameters.AddWithValue("@stock", auto.Stock);
                     comando.Parameters.AddWithValue("@precio", auto.Precio);
+                    comando.Parameters.AddWithValue("@patente", auto.Patente);
 
                     comando.ExecuteNonQuery();
                     cadenaComando = "SELECT @@IDENTITY";
@@ -113,15 +114,15 @@ namespace AlquilerAutos.DL.Repositorios
                 {
                     string cadenaComando =
                         "UPDATE Autos SET MarcaId=@marcaId, TipoDeVehiculoId =@tipovehiculoId, Modelo=@modelo" +
-                        ", CombustibleId=@combustibleId, Activo=@activo, Stock=@stock, Precio=@precio WHERE AutoId=@id";
+                        ", CombustibleId=@combustibleId, Activo=@activo, Precio=@precio, Patente=@patente WHERE AutoId=@id";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                     comando.Parameters.AddWithValue("@marcaId", auto.marca.MarcaId);
                     comando.Parameters.AddWithValue("@tipovehiculoId", auto.tipodevehiculo.TipoDeVehiculoId);
                     comando.Parameters.AddWithValue("@modelo", auto.Modelo);
                     comando.Parameters.AddWithValue("@combustibleId", auto.combustible.CombustibleId);
                     comando.Parameters.AddWithValue("@activo", auto.Activo);
-                    comando.Parameters.AddWithValue("@stock", auto.Stock);
                     comando.Parameters.AddWithValue("@precio", auto.Precio);
+                    comando.Parameters.AddWithValue("@patente", auto.Patente);
 
                     comando.Parameters.AddWithValue("@id", auto.AutoId);
                     comando.ExecuteNonQuery();
@@ -163,19 +164,17 @@ namespace AlquilerAutos.DL.Repositorios
             {
                 if (auto.AutoId == 0)
                 {
-                    string cadenaComando = "SELECT * FROM Autos WHERE MarcaId=@marcaId AND Modelo=@modelo";
+                    string cadenaComando = "SELECT * FROM Autos WHERE Patente=@patente";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@marcaId", auto.marca.MarcaId);
-                    comando.Parameters.AddWithValue("@modelo", auto.Modelo);
+                    comando.Parameters.AddWithValue("@patente", auto.Patente);
                     SqlDataReader reader = comando.ExecuteReader();
                     return reader.HasRows;
                 }
                 else
                 {
-                    string cadenaComando = "SELECT * FROM Autos WHERE MarcaId=@marcaId AND Modelo=@modelo AND AutoId<>@AutoId";
+                    string cadenaComando = "SELECT * FROM Autos WHERE Patente=@patente AND AutoId<>@AutoId";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@marcaId", auto.marca.MarcaId);
-                    comando.Parameters.AddWithValue("@modelo", auto.Modelo);
+                    comando.Parameters.AddWithValue("@patente", auto.Patente);
                     comando.Parameters.AddWithValue("@AutoId", auto.AutoId);
                     SqlDataReader reader = comando.ExecuteReader();
                     return reader.HasRows;
@@ -197,7 +196,7 @@ namespace AlquilerAutos.DL.Repositorios
             try
             {
                 string cadenaComando =
-                    "SELECT        A.AutoId, M.MarcaId, TV.TipoDeVehiculoId, C.CombustibleId, A.Modelo, A.Activo, A.Stock, A.Precio " +
+                    "SELECT        A.AutoId, M.MarcaId, TV.TipoDeVehiculoId, C.CombustibleId, A.Modelo, A.Activo, A.Precio, A.Patente " +
                     "FROM Autos AS A INNER JOIN Combustibles AS C ON A.CombustibleId = C.CombustibleId " +
                     "INNER JOIN TiposDeVehiculos AS TV ON A.TipoDeVehiculoId = TV.TipoDeVehiculoId" +
                     " INNER JOIN Marcas AS M ON A.MarcaId = M.MarcaId WHERE AutoId=@id";
@@ -247,10 +246,11 @@ namespace AlquilerAutos.DL.Repositorios
             List<Auto> lista = new List<Auto>();
             try
             {
-                string cadenaComando = "SELECT        A.AutoId, M.MarcaId, TV.TipoDeVehiculoId, C.CombustibleId, A.Modelo, A.Activo, A.Stock, A.Precio " +
+                string cadenaComando = "SELECT        A.AutoId, M.MarcaId, TV.TipoDeVehiculoId, C.CombustibleId, A.Modelo, A.Activo, A.Precio, A.Patente " +
                                        "FROM Autos AS A INNER JOIN Combustibles AS C ON A.CombustibleId = C.CombustibleId " +
                                        "INNER JOIN TiposDeVehiculos AS TV ON A.TipoDeVehiculoId = TV.TipoDeVehiculoId" +
-                                       " INNER JOIN Marcas AS M ON A.MarcaId = M.MarcaId WHERE M.MarcaId=@id AND A.Stock>0";
+                                       " INNER JOIN Marcas AS M ON A.MarcaId = M.MarcaId WHERE M.MarcaId=@id AND A.Activo='false'";
+                //AND A.Stock>0
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", marca.MarcaId);
                 SqlDataReader reader = comando.ExecuteReader();
@@ -271,7 +271,53 @@ namespace AlquilerAutos.DL.Repositorios
             }
         }
 
-        public void EditarStock(Auto alquilerAuto)
+        public List<Auto> GetAuto(Auto automovil)
+        {
+            List<Auto> lista = new List<Auto>();
+            try
+            {
+                string cadenaComando = "SELECT        A.AutoId, M.MarcaId, TV.TipoDeVehiculoId, C.CombustibleId, A.Modelo, A.Activo, A.Precio, A.Patente " +
+                                       "FROM Autos AS A INNER JOIN Combustibles AS C ON A.CombustibleId = C.CombustibleId " +
+                                       "INNER JOIN TiposDeVehiculos AS TV ON A.TipoDeVehiculoId = TV.TipoDeVehiculoId" +
+                                       " INNER JOIN Marcas AS M ON A.MarcaId = M.MarcaId WHERE A.AutoId=@id";
+                //AND A.Stock>0
+                SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
+                comando.Parameters.AddWithValue("@id", automovil.AutoId);
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    var Auto = ConstruirAuto(reader);
+                    lista.Add(Auto);
+                }
+
+                reader.Close();
+                return lista;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void EditarActivo(Auto alquilerAuto)
+        {
+            try
+            {
+                string cadenaComando = "UPDATE Autos SET Activo='true' where AutoId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
+                comando.Parameters.AddWithValue("@id", alquilerAuto.AutoId);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        /*  public void EditarStock(Auto alquilerAuto)
         {
             try
             {
@@ -286,5 +332,6 @@ namespace AlquilerAutos.DL.Repositorios
                 throw;
             }
         }
+      */
     }
 }

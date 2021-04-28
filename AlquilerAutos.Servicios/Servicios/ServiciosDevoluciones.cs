@@ -62,7 +62,7 @@ namespace AlquilerAutos.Servicios.Servicios
                 _repositorioAlquileres = new RepositorioAlquileres(_conexionBd.AbrirConexion());
                 _repositorio = new RepositorioDevoluciones(_conexionBd.AbrirConexion());
                 _repositorio.Guardar(devolucion);
-                _repositorioAlquileres.EditarStock(devolucion.alquiler.auto);
+                _repositorioAlquileres.EditarActivo(devolucion.alquiler.auto);
                 _conexionBd.CerrarConexion();
 
             }

@@ -12,5 +12,6 @@ namespace AlquilerAutos.Servicios.Servicios.Facades
         bool Existe(Combustible combustible);
         bool EstaRelacionado(Combustible combustible);
         void Editar(Combustible combustible);
+        List<Combustible> GetCombustibles(Auto auto);
     }
 }

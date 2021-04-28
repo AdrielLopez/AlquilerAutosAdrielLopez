@@ -201,7 +201,7 @@ namespace AlquilerAutos.DL.Repositorios
             }
         }
 
-        public void EditarStock(Auto alquilerAuto)
+       /* public void EditarStock(Auto alquilerAuto)
         {
             try
             {
@@ -216,7 +216,7 @@ namespace AlquilerAutos.DL.Repositorios
                 throw;
             }
         }
-
+       */
         public List<Alquiler> GetAlquiler(ClienteListDto cliente)
         {
             List<Alquiler> lista = new List<Alquiler>();
@@ -241,6 +241,22 @@ namespace AlquilerAutos.DL.Repositorios
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        public void EditarActivo(Auto alquilerAuto)
+        {
+            try
+            {
+                string cadenaComando = "UPDATE Autos SET Activo='false' where AutoId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
+                comando.Parameters.AddWithValue("@id", alquilerAuto.AutoId);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
                 throw;
             }
         }

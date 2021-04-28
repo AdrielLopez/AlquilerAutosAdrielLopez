@@ -14,7 +14,7 @@ namespace AlquilerAutos.BL.Entidades
         public string Modelo { get; set; }
         public Combustible combustible { get; set; }
         public bool Activo { get; set; }
-        public int Stock { get; set; }
+        public string Patente { get; set; }
 
         public double Precio { get; set; }
 

@@ -150,5 +150,22 @@ namespace AlquilerAutos.Servicios.Servicios
                 throw new Exception(e.Message);
             }
         }
+
+        public List<Auto> GetAuto(Auto auto)
+        {
+            try
+            {
+                _conexionBd = new ConexionBd();
+                _repositorio = new RepositorioAutos(_conexionBd.AbrirConexion());
+                var lista = _repositorio.GetAuto(auto);
+                _conexionBd.CerrarConexion();
+                return lista;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

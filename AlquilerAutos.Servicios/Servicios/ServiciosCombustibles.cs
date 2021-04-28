@@ -125,5 +125,21 @@ namespace AlquilerAutos.Servicios.Servicios
             }
 
         }
+
+        public List<Combustible> GetCombustibles(Auto auto)
+        {
+            try
+            {
+                _conexionBd = new ConexionBd();
+                _repositorio = new RepositorioCombustibles(_conexionBd.AbrirConexion());
+                var lista = _repositorio.GetCombustibles(auto);
+                _conexionBd.CerrarConexion();
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

@@ -150,12 +150,13 @@ namespace AlquilerAutos.Windows.Helpers
             var defaultEmpleado = new EmpleadoListDto()
             {
                 EmpleadoId = 0,
-                Nombre = "Seleccione Empleado"
+                Nombre = "Seleccione Empleado",
+                
             };
             lista.Insert(0, defaultEmpleado);
             combo.DataSource = lista;
             combo.ValueMember = "EmpleadoId";
-            combo.DisplayMember = "Nombre";
+            combo.DisplayMember = "NombreCompleto";
             combo.SelectedIndex = 0;
         }
 
@@ -171,7 +172,7 @@ namespace AlquilerAutos.Windows.Helpers
             lista.Insert(0, defaultCliente);
             combo.DataSource = lista;
             combo.ValueMember = "ClienteId";
-            combo.DisplayMember = "Nombre";
+            combo.DisplayMember = "NombreCompleto";
             combo.SelectedIndex = 0;
 
         }
@@ -195,6 +196,22 @@ namespace AlquilerAutos.Windows.Helpers
             combo.DataSource = lista;
             combo.ValueMember = "AlquilerId";
             combo.DisplayMember = "AlquilerId";
+            combo.SelectedIndex = 0;
+        }
+
+        public static void CargarDatosComboCombustibles(ref ComboBox combo, Auto auto)
+        {
+            IServiciosCombustible serviciosCombustible = new ServiciosCombustibles();
+            var lista = serviciosCombustible.GetCombustibles(auto);
+            var defaultAuto = new Combustible()
+            {
+                CombustibleId = 0,
+                NombreCombustible= "Seleccione Combustible"
+            };
+            lista.Insert(0, defaultAuto);
+            combo.DataSource = lista;
+            combo.ValueMember = "CombustibleId";
+            combo.DisplayMember = "NombreCombustible";
             combo.SelectedIndex = 0;
         }
     }

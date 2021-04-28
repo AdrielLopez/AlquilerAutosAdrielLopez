@@ -65,8 +65,16 @@ namespace AlquilerAutos.Windows
             r.Cells[cmnTipoDeVehiculo.Index].Value = auto.tipodevehiculo.Descripcion;
             r.Cells[cmnModelo.Index].Value = auto.Modelo;
             r.Cells[cmnCombustible.Index].Value = auto.combustible.NombreCombustible;
-            r.Cells[cmnStock.Index].Value = auto.Stock;
+            if (auto.Activo == false)
+            {
+                r.Cells[cmnActivo.Index].Value = "Disponible";
+            }
+            else
+            {
+                r.Cells[cmnActivo.Index].Value = "No Disponible";
+            }
             r.Cells[cmnPrecio.Index].Value = auto.Precio;
+            r.Cells[cmnPatente.Index].Value = auto.Patente;
             r.Tag = auto;
         }
 

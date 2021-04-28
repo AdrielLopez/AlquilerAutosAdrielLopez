@@ -70,7 +70,8 @@ namespace AlquilerAutos.DL.Repositorios
                 Nombre = reader.GetString(1),
                 Apellido = reader.GetString(2),
                 LocalidadId = reader.GetInt32(3),
-                ProvinciaId = reader.GetInt32(4)
+                ProvinciaId = reader.GetInt32(4),
+                
             };
 
         }

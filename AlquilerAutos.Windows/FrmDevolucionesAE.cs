@@ -140,6 +140,7 @@ namespace AlquilerAutos.Windows
        
             r.Cells[cmnMarca.Index].Value =alquiler.auto.marca.NombreMarca;
             r.Cells[cmnModelo.Index].Value = alquiler.auto.Modelo;
+            r.Cells[cmnCombustible.Index].Value = alquiler.auto.combustible.NombreCombustible;
             r.Cells[cmnFechaAlquiler.Index].Value = alquiler.fecha;
             r.Tag = alquiler;
         }

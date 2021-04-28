@@ -43,8 +43,8 @@ namespace AlquilerAutos.Windows
                 auto.tipodevehiculo = (TipoDeVehiculo)TipoDeVehiculoComboBox.SelectedItem;
                 auto.Modelo = ModeloTextBox.Text;
                 auto.combustible = (Combustible) CombustibleComboBox.SelectedItem;
-                auto.Stock = Int32.Parse(StockTextBox.Text);
                 auto.Precio = Double.Parse(PrecioTextBox.Text);
+                auto.Patente = PatenteTextBox.Text;
 
 
                 DialogResult = DialogResult.OK;
@@ -61,11 +61,6 @@ namespace AlquilerAutos.Windows
                 errorProvider1.SetError(ModeloTextBox, "El modelo es requerido");
             }
 
-            if (string.IsNullOrEmpty(StockTextBox.Text) || string.IsNullOrWhiteSpace(StockTextBox.Text))
-            {
-                valido = false;
-                errorProvider1.SetError(StockTextBox, "El numero de stock es requerido");
-            }
             if (MarcaComboBox.SelectedIndex == 0)
             {
                 valido = false;
@@ -82,20 +77,15 @@ namespace AlquilerAutos.Windows
                 valido = false;
                 errorProvider1.SetError(CombustibleComboBox, "Debe seleccionar un tipo de combustible");
             }
+            errorProvider1.Clear();
+            if (string.IsNullOrEmpty(PatenteTextBox.Text) || string.IsNullOrWhiteSpace(PatenteTextBox.Text))
+            {
+                valido = false;
+                errorProvider1.SetError(PatenteTextBox, "La patente es requerida");
+            }
 
-            int stock = 0;
             double precio = 0;
-            if (!int.TryParse(StockTextBox.Text, out stock))
-            {
-                valido = false;
-                errorProvider1.SetError(StockTextBox,"El stock debe ser un numero");
-            }
-
-            if (stock<=0)
-            {
-                valido = false;
-                errorProvider1.SetError(StockTextBox,"El stock debe ser mayor a 0 ");
-            }
+          
 
             if (!double.TryParse(PrecioTextBox.Text, out precio))
             {
@@ -130,7 +120,6 @@ namespace AlquilerAutos.Windows
                 TipoDeVehiculoComboBox.SelectedValue = auto.tipodevehiculo.TipoDeVehiculoId;
                 ModeloTextBox.Text = auto.Modelo;
                 CombustibleComboBox.SelectedValue = auto.combustible.CombustibleId;
-                StockTextBox.Text = auto.Stock.ToString();
                 PrecioTextBox.Text = auto.Precio.ToString();
 
             }

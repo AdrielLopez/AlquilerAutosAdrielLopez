@@ -12,6 +12,24 @@ namespace AlquilerAutos.BL.DTOs.Cliente
         public string Nombre { get; set; }
         public string Apellido { get; set; }
 
+        private string nombrecompleto;
+
+        public string NombreCompleto
+        {
+            get { return Nombre +" " + Apellido; }
+            set { nombrecompleto = value; }
+        }
+
+
+
+        public string FullName
+        {
+            get
+            {
+                return Nombre + ", " + Apellido;
+            }
+        }
+
         public int LocalidadId { get; set; }
         public int ProvinciaId { get; set; }
         public object Clone()

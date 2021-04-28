@@ -78,7 +78,7 @@ namespace AlquilerAutos.Servicios.Servicios
                 _repositorioAutos = new RepositorioAutos(_conexionBd.AbrirConexion());
                 _repositorio = new RepositorioAlquileres(_conexionBd.AbrirConexion());
                 _repositorio.Guardar(alquiler);
-                _repositorioAutos.EditarStock(alquiler.auto);
+                _repositorioAutos.EditarActivo(alquiler.auto);
                 _conexionBd.CerrarConexion();
 
             }

@@ -31,22 +31,23 @@ namespace AlquilerAutos.Windows
         {
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsNuevo = new System.Windows.Forms.ToolStripButton();
+            this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BuscarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.cmnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnTipoDeVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsNuevo = new System.Windows.Forms.ToolStripButton();
-            this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.BuscarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.cmnPatente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,8 +62,9 @@ namespace AlquilerAutos.Windows
             this.cmnTipoDeVehiculo,
             this.cmnModelo,
             this.cmnCombustible,
-            this.cmnStock,
-            this.cmnPrecio});
+            this.cmnActivo,
+            this.cmnPrecio,
+            this.cmnPatente});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 54);
             this.DatosDataGridView.MultiSelect = false;
@@ -91,62 +93,6 @@ namespace AlquilerAutos.Windows
             this.toolStrip1.Size = new System.Drawing.Size(800, 54);
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
-            // 
-            // cmnMarca
-            // 
-            this.cmnMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnMarca.HeaderText = "Marca";
-            this.cmnMarca.Name = "cmnMarca";
-            this.cmnMarca.ReadOnly = true;
-            // 
-            // cmnTipoDeVehiculo
-            // 
-            this.cmnTipoDeVehiculo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnTipoDeVehiculo.HeaderText = "TipoDeVehiculo";
-            this.cmnTipoDeVehiculo.Name = "cmnTipoDeVehiculo";
-            this.cmnTipoDeVehiculo.ReadOnly = true;
-            // 
-            // cmnModelo
-            // 
-            this.cmnModelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnModelo.HeaderText = "Modelo";
-            this.cmnModelo.Name = "cmnModelo";
-            this.cmnModelo.ReadOnly = true;
-            // 
-            // cmnCombustible
-            // 
-            this.cmnCombustible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnCombustible.HeaderText = "Combustible";
-            this.cmnCombustible.Name = "cmnCombustible";
-            this.cmnCombustible.ReadOnly = true;
-            // 
-            // cmnStock
-            // 
-            this.cmnStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnStock.HeaderText = "Stock";
-            this.cmnStock.Name = "cmnStock";
-            this.cmnStock.ReadOnly = true;
-            // 
-            // cmnPrecio
-            // 
-            this.cmnPrecio.HeaderText = "Precio";
-            this.cmnPrecio.Name = "cmnPrecio";
-            this.cmnPrecio.ReadOnly = true;
             // 
             // tsNuevo
             // 
@@ -181,6 +127,11 @@ namespace AlquilerAutos.Windows
             this.EditarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.EditarToolStripButton.Click += new System.EventHandler(this.EditarToolStripButton_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
+            // 
             // BuscarToolStripButton
             // 
             this.BuscarToolStripButton.Image = global::AlquilerAutos.Windows.Properties.Resources.icons8_search_property_32;
@@ -201,6 +152,11 @@ namespace AlquilerAutos.Windows
             this.ActualizarToolStripButton.Text = "Actualizar";
             this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
+            // 
             // ImprimirToolStripButton
             // 
             this.ImprimirToolStripButton.Image = global::AlquilerAutos.Windows.Properties.Resources.icons8_print_32;
@@ -210,6 +166,11 @@ namespace AlquilerAutos.Windows
             this.ImprimirToolStripButton.Size = new System.Drawing.Size(57, 51);
             this.ImprimirToolStripButton.Text = "Imprimir";
             this.ImprimirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
             // 
             // CerrarToolStripButton
             // 
@@ -221,6 +182,53 @@ namespace AlquilerAutos.Windows
             this.CerrarToolStripButton.Text = "Cerrar";
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
+            // 
+            // cmnMarca
+            // 
+            this.cmnMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnMarca.HeaderText = "Marca";
+            this.cmnMarca.Name = "cmnMarca";
+            this.cmnMarca.ReadOnly = true;
+            // 
+            // cmnTipoDeVehiculo
+            // 
+            this.cmnTipoDeVehiculo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnTipoDeVehiculo.HeaderText = "TipoDeVehiculo";
+            this.cmnTipoDeVehiculo.Name = "cmnTipoDeVehiculo";
+            this.cmnTipoDeVehiculo.ReadOnly = true;
+            // 
+            // cmnModelo
+            // 
+            this.cmnModelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnModelo.HeaderText = "Modelo";
+            this.cmnModelo.Name = "cmnModelo";
+            this.cmnModelo.ReadOnly = true;
+            // 
+            // cmnCombustible
+            // 
+            this.cmnCombustible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnCombustible.HeaderText = "Combustible";
+            this.cmnCombustible.Name = "cmnCombustible";
+            this.cmnCombustible.ReadOnly = true;
+            // 
+            // cmnActivo
+            // 
+            this.cmnActivo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnActivo.HeaderText = "Activo";
+            this.cmnActivo.Name = "cmnActivo";
+            this.cmnActivo.ReadOnly = true;
+            // 
+            // cmnPrecio
+            // 
+            this.cmnPrecio.HeaderText = "Precio";
+            this.cmnPrecio.Name = "cmnPrecio";
+            this.cmnPrecio.ReadOnly = true;
+            // 
+            // cmnPatente
+            // 
+            this.cmnPatente.HeaderText = "Patente";
+            this.cmnPatente.Name = "cmnPatente";
+            this.cmnPatente.ReadOnly = true;
             // 
             // FrmAutos
             // 
@@ -261,7 +269,8 @@ namespace AlquilerAutos.Windows
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnTipoDeVehiculo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnModelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnCombustible;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnActivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnPatente;
     }
 }

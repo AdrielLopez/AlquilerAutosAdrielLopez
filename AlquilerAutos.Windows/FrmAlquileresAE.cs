@@ -41,6 +41,7 @@ namespace AlquilerAutos.Windows
             base.OnLoad(e);
             Helper.CargarDatosComboMarcas(ref MarcaComboBox);
             FechaLimiteDateTime.Enabled = false;
+            CombustibleComboBox.Enabled = false;
 
             Helper.CargarDatosComboEmpleados(ref EmpleadoComboBox);
             Helper.CargarDatosComboClientes(ref ClienteComboBox);
@@ -153,11 +154,15 @@ namespace AlquilerAutos.Windows
         {
             if (ModeloComboBox.SelectedIndex!=0)
             {
+                Auto auto = (Auto)ModeloComboBox.SelectedItem;
+                Helper.CargarDatosComboCombustibles(ref CombustibleComboBox, auto);
+                CombustibleComboBox.Enabled = true;
                 FechaLimiteDateTime.Enabled = true;
 
             }
             else
             {
+                CombustibleComboBox.Enabled = false;
                 FechaLimiteDateTime.Enabled = false;
             }
         }

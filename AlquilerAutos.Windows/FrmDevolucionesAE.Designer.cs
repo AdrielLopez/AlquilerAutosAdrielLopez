@@ -38,6 +38,7 @@ namespace AlquilerAutos.Windows
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
             this.cmnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnFechaAlquiler = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
@@ -91,6 +92,7 @@ namespace AlquilerAutos.Windows
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cmnMarca,
             this.cmnModelo,
+            this.cmnCombustible,
             this.cmnFechaAlquiler});
             this.DatosDataGridView.Location = new System.Drawing.Point(12, 50);
             this.DatosDataGridView.MultiSelect = false;
@@ -111,6 +113,12 @@ namespace AlquilerAutos.Windows
             this.cmnModelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cmnModelo.HeaderText = "Modelo";
             this.cmnModelo.Name = "cmnModelo";
+            // 
+            // cmnCombustible
+            // 
+            this.cmnCombustible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnCombustible.HeaderText = "Combustible";
+            this.cmnCombustible.Name = "cmnCombustible";
             // 
             // cmnFechaAlquiler
             // 
@@ -145,10 +153,11 @@ namespace AlquilerAutos.Windows
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnModelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnFechaAlquiler;
         private System.Windows.Forms.ComboBox ClienteComboBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnModelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnCombustible;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cmnFechaAlquiler;
     }
 }

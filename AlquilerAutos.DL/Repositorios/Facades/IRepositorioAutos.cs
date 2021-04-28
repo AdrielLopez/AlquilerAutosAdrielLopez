@@ -17,6 +17,8 @@ namespace AlquilerAutos.DL.Repositorios.Facades
         bool Existe(Auto auto);
         bool EstaRelacionado(Auto auto);
         List<Auto> GetAuto(Marca marca);
-        void EditarStock(Auto alquilerAuto);
+      //  void EditarStock(Auto alquilerAuto);
+        List<Auto> GetAuto(Auto automovil);
+        void EditarActivo(Auto alquilerAuto);
     }
 }

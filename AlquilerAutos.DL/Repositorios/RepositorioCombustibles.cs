@@ -156,6 +156,31 @@ namespace AlquilerAutos.DL.Repositorios
                 throw new Exception(e.Message);
             }
         }
+
+        public List<Combustible> GetCombustibles(Auto auto)
+        {
+            List<Combustible> lista = new List<Combustible>();
+            try
+            {
+                string cadenaComando = "SELECT CombustibleId, NombreCombustible FROM Combustibles WHERE CombustibleId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _conexion);
+                comando.Parameters.AddWithValue("@id", auto.combustible.CombustibleId);
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    Combustible combustible = ConstruirCombustible(reader);
+                    lista.Add(combustible);
+
+                }
+                reader.Close();
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al intentar leer los combustibles");
+            }
+        }
+
         public void Guardar(Combustible combustible)
         {
             try

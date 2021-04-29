@@ -21,6 +21,12 @@ namespace AlquilerAutos.Windows
             InitializeComponent();
         }
 
+        public  FrmAlquileresAE(Auto _auto)
+        {
+            InitializeComponent();
+            this.auto = _auto;
+        }
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -47,6 +53,7 @@ namespace AlquilerAutos.Windows
 
             Helper.CargarDatosComboEmpleados(ref EmpleadoComboBox);
             Helper.CargarDatosComboClientes(ref ClienteComboBox);
+            //Disculpa es mi linea de internet la que tiene el problema de voz
             if (alquiler != null)
             {
                 MarcaComboBox.SelectedValue = alquiler.auto.marca.MarcaId;
@@ -54,8 +61,12 @@ namespace AlquilerAutos.Windows
                 CombustibleComboBox.SelectedValue = alquiler.auto.combustible.NombreCombustible;
                 EmpleadoComboBox.SelectedValue = alquiler.empleado.EmpleadoId;
                 ClienteComboBox.SelectedValue = alquiler.cliente.ClienteId;
-                
 
+
+            }
+            if (auto != null)
+            {
+                MarcaComboBox.SelectedValue = auto.marca.MarcaId;
             }
         }
 
@@ -66,6 +77,13 @@ namespace AlquilerAutos.Windows
                 Marca marca = (Marca) MarcaComboBox.SelectedItem;
                 Helper.CargarDatosComboModelos(ref ModeloComboBox, marca);
                 ModeloComboBox.Enabled = true;
+                if (auto != null)
+                {
+                    ModeloComboBox.SelectedValue = auto.AutoId;
+                    ModeloComboBox.Enabled = false;
+                    CombustibleComboBox.Enabled = false;
+                    MarcaComboBox.Enabled = false;
+                }
             }
             else
             {
@@ -155,12 +173,16 @@ namespace AlquilerAutos.Windows
 
         private void ModeloComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ModeloComboBox.SelectedIndex!=0)
+            if (ModeloComboBox.SelectedIndex != 0)
             {
-                Auto auto = (Auto)ModeloComboBox.SelectedItem;
-                Helper.CargarDatosComboCombustibles(ref CombustibleComboBox, auto);
+                Auto _auto = (Auto)ModeloComboBox.SelectedItem;
+                Helper.CargarDatosComboCombustibles(ref CombustibleComboBox, _auto);
                 CombustibleComboBox.Enabled = true;
                 FechaLimiteDateTime.Enabled = true;
+                if (auto != null)
+                {
+                    CombustibleComboBox.SelectedValue = auto.combustible.CombustibleId;
+                }
 
             }
             else
@@ -172,7 +194,7 @@ namespace AlquilerAutos.Windows
 
         private void FrmAlquileresAE_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public void SetAlquiler(Auto auto)

@@ -12,6 +12,8 @@ namespace AlquilerAutos.BL.DTOs.Cliente
         public string Nombre { get; set; }
         public string Apellido { get; set; }
 
+        public string NroDoc { get; set; }
+
         private string nombrecompleto;
 
         public string NombreCompleto

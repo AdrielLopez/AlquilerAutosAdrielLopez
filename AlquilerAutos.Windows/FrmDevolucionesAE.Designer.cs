@@ -40,6 +40,8 @@ namespace AlquilerAutos.Windows
             this.cmnModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmnFechaAlquiler = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroDocTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -126,12 +128,31 @@ namespace AlquilerAutos.Windows
             this.cmnFechaAlquiler.HeaderText = "Fecha Alquiler";
             this.cmnFechaAlquiler.Name = "cmnFechaAlquiler";
             // 
+            // NroDocTextBox
+            // 
+            this.NroDocTextBox.Enabled = false;
+            this.NroDocTextBox.Location = new System.Drawing.Point(344, 11);
+            this.NroDocTextBox.Name = "NroDocTextBox";
+            this.NroDocTextBox.Size = new System.Drawing.Size(100, 20);
+            this.NroDocTextBox.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(218, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Numero de Documento:";
+            // 
             // FrmDevolucionesAE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 281);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.NroDocTextBox);
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.ClienteComboBox);
             this.Controls.Add(this.label1);
@@ -159,5 +180,7 @@ namespace AlquilerAutos.Windows
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnModelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnCombustible;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnFechaAlquiler;
+        private System.Windows.Forms.TextBox NroDocTextBox;
+        private System.Windows.Forms.Label label2;
     }
 }

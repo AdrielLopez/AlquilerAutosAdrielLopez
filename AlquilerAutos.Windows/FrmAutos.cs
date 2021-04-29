@@ -262,7 +262,7 @@ namespace AlquilerAutos.Windows
 
             DataGridViewRow r = DatosDataGridView.SelectedRows[0];
             Auto auto = (Auto) r.Tag;
-            FrmAlquileresAE frm = new FrmAlquileresAE();
+            FrmAlquileresAE frm = new FrmAlquileresAE(auto);
             
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.Cancel)
@@ -270,18 +270,42 @@ namespace AlquilerAutos.Windows
                 return;
             }
 
-            /*auto = frm.GetAlquiler();
-            //Controlar repitencia
+            try
+            {
+                Alquiler alquiler = frm.GetAlquiler();
+                if (_serviciosAlquileres.Existe(alquiler))
+                {
+                    MessageBox.Show("Registro repetido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
 
-            
-            _servicio.Guardar(auto);
-                SetearFila(r, auto);
-                MessageBox.Show("Registro Editado con exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            */
+                }
 
 
+                _serviciosAlquileres.Guardar(alquiler);
+                ActualizarGrilla();
+                MessageBox.Show("Registro agregado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        /*auto = frm.GetAlquiler();
+        //Controlar repitencia
+
+
+        _servicio.Guardar(auto);
+            SetearFila(r, auto);
+            MessageBox.Show("Registro Editado con exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        */
+
+
+
+
     }
-}
+
+        
+    }
+

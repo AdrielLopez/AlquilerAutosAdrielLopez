@@ -108,7 +108,8 @@ namespace AlquilerAutos.Windows
                     Nombre = ClienteEditDto.Nombre,
                     Apellido = ClienteEditDto.Apellido,
                     LocalidadId = ClienteEditDto.Localidad.LocalidadId,
-                    ProvinciaId = ClienteEditDto.Provincia.ProvinciaId
+                    ProvinciaId = ClienteEditDto.Provincia.ProvinciaId,
+                    NroDoc = ClienteEditDto.NroDocumento
 
 
                 };
@@ -156,6 +157,7 @@ namespace AlquilerAutos.Windows
                     ClienteListDto.Apellido = ClienteEditDto.Apellido;
                     ClienteListDto.LocalidadId = ClienteEditDto.Localidad.LocalidadId;
                     ClienteListDto.ProvinciaId = ClienteEditDto.Provincia.ProvinciaId;
+                    ClienteListDto.NroDoc = ClienteEditDto.NroDocumento;
 
                     SetearFila(r, ClienteListDto);
                     MessageBox.Show("Registro Editado con exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

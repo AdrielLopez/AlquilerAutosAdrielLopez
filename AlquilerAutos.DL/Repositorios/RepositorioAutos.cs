@@ -40,7 +40,7 @@ namespace AlquilerAutos.DL.Repositorios
                 string cadenaComando = "SELECT        A.AutoId, M.MarcaId, TV.TipoDeVehiculoId, C.CombustibleId, A.Modelo, A.Activo , A.Precio, A.Patente " +
                                        "FROM Autos AS A INNER JOIN Combustibles AS C ON A.CombustibleId = C.CombustibleId " +
                                        "INNER JOIN TiposDeVehiculos AS TV ON A.TipoDeVehiculoId = TV.TipoDeVehiculoId" +
-                                       " INNER JOIN Marcas AS M ON A.MarcaId = M.MarcaId";
+                                       " INNER JOIN Marcas AS M ON A.MarcaId = M.MarcaId WHERE A.Activo='false'";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())

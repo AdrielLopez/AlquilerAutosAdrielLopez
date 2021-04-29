@@ -38,7 +38,7 @@ namespace AlquilerAutos.DL.Repositorios
             List<ClienteListDto> lista = new List<ClienteListDto>();
             try
             {
-                string cadenaComando = "SELECT ClienteId,Nombre,Apellido,L.LocalidadId,P.ProvinciaId" +
+                string cadenaComando = "SELECT ClienteId,Nombre,Apellido,L.LocalidadId,P.ProvinciaId,NroDocumento" +
                                        " FROM Clientes E Inner Join Localidades L ON " +
                                        "E.LocalidadId = L.LocalidadId INNER JOIN Provincias P ON L.ProvinciaId = P.ProvinciaId";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
@@ -71,6 +71,7 @@ namespace AlquilerAutos.DL.Repositorios
                 Apellido = reader.GetString(2),
                 LocalidadId = reader.GetInt32(3),
                 ProvinciaId = reader.GetInt32(4),
+                NroDoc = reader.GetString(5)
                 
             };
 

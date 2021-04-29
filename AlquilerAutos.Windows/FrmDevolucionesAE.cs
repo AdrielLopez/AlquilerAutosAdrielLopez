@@ -106,11 +106,13 @@ namespace AlquilerAutos.Windows
                     ClienteListDto cliente =(ClienteListDto) ClienteComboBox.SelectedItem;
                     _lista = _serviciosAlquileres.GetAlquiler(cliente);
                     MostrarDatosEnGrilla();
+                    NroDocTextBox.Text = cliente.NroDoc;
                 }
                 else
                 {
                     DatosDataGridView.Rows.Clear();
                 }
+
             }
             catch (Exception exception)
             {

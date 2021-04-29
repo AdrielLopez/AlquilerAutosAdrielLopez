@@ -29,6 +29,7 @@ namespace AlquilerAutos.Windows
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAutos));
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsNuevo = new System.Windows.Forms.ToolStripButton();
@@ -38,7 +39,7 @@ namespace AlquilerAutos.Windows
             this.BuscarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.AlquilarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.cmnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,7 +86,7 @@ namespace AlquilerAutos.Windows
             this.BuscarToolStripButton,
             this.ActualizarToolStripButton,
             this.toolStripSeparator2,
-            this.ImprimirToolStripButton,
+            this.AlquilarToolStripButton,
             this.toolStripSeparator3,
             this.CerrarToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -141,6 +142,7 @@ namespace AlquilerAutos.Windows
             this.BuscarToolStripButton.Size = new System.Drawing.Size(46, 51);
             this.BuscarToolStripButton.Text = "Buscar";
             this.BuscarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BuscarToolStripButton.Click += new System.EventHandler(this.BuscarToolStripButton_Click);
             // 
             // ActualizarToolStripButton
             // 
@@ -151,21 +153,23 @@ namespace AlquilerAutos.Windows
             this.ActualizarToolStripButton.Size = new System.Drawing.Size(63, 51);
             this.ActualizarToolStripButton.Text = "Actualizar";
             this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ActualizarToolStripButton.Click += new System.EventHandler(this.ActualizarToolStripButton_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
             // 
-            // ImprimirToolStripButton
+            // AlquilarToolStripButton
             // 
-            this.ImprimirToolStripButton.Image = global::AlquilerAutos.Windows.Properties.Resources.icons8_print_32;
-            this.ImprimirToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ImprimirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ImprimirToolStripButton.Name = "ImprimirToolStripButton";
-            this.ImprimirToolStripButton.Size = new System.Drawing.Size(57, 51);
-            this.ImprimirToolStripButton.Text = "Imprimir";
-            this.ImprimirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.AlquilarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("AlquilarToolStripButton.Image")));
+            this.AlquilarToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.AlquilarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AlquilarToolStripButton.Name = "AlquilarToolStripButton";
+            this.AlquilarToolStripButton.Size = new System.Drawing.Size(52, 51);
+            this.AlquilarToolStripButton.Text = "Alquilar";
+            this.AlquilarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.AlquilarToolStripButton.Click += new System.EventHandler(this.AlquilarToolStripButton_Click);
             // 
             // toolStripSeparator3
             // 
@@ -262,7 +266,7 @@ namespace AlquilerAutos.Windows
         private System.Windows.Forms.ToolStripButton BuscarToolStripButton;
         private System.Windows.Forms.ToolStripButton ActualizarToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton ImprimirToolStripButton;
+        private System.Windows.Forms.ToolStripButton AlquilarToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnMarca;

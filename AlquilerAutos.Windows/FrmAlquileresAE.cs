@@ -26,6 +26,8 @@ namespace AlquilerAutos.Windows
 
         }
 
+        private Auto auto;
+
         private Alquiler alquiler;
         public Alquiler GetAlquiler()
         {
@@ -49,6 +51,7 @@ namespace AlquilerAutos.Windows
             {
                 MarcaComboBox.SelectedValue = alquiler.auto.marca.MarcaId;
                 ModeloComboBox.SelectedValue = alquiler.auto.Modelo;
+                CombustibleComboBox.SelectedValue = alquiler.auto.combustible.NombreCombustible;
                 EmpleadoComboBox.SelectedValue = alquiler.empleado.EmpleadoId;
                 ClienteComboBox.SelectedValue = alquiler.cliente.ClienteId;
                 
@@ -138,7 +141,7 @@ namespace AlquilerAutos.Windows
         private void FechaLimiteDateTime_ValueChanged(object sender, EventArgs e)
         {
             Auto auto = (Auto) ModeloComboBox.SelectedItem;
-            TimeSpan diferencia = FechaLimiteDateTime.Value.Date.Subtract(DateTime.Now);
+            TimeSpan diferencia = FechaLimiteDateTime.Value.Date.Subtract(DateTime.Now.Date);
             double precio = diferencia.Days * auto.Precio;
             if (precio < 0)
             {
@@ -170,6 +173,11 @@ namespace AlquilerAutos.Windows
         private void FrmAlquileresAE_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void SetAlquiler(Auto auto)
+        {
+            alquiler.auto = this.auto;
         }
     }
 }

@@ -70,6 +70,12 @@
     <Compile Include="FrmAutosAE.Designer.cs">
       <DependentUpon>FrmAutosAE.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuscarAutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarAutos.Designer.cs">
+      <DependentUpon>FrmBuscarAutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAutosAE.resx">
       <DependentUpon>FrmAutosAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarAutos.resx">
+      <DependentUpon>FrmBuscarAutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>

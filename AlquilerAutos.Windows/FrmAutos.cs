@@ -16,10 +16,14 @@ namespace AlquilerAutos.Windows
 {
     public partial class FrmAutos : Form
     {
+        private IServiciosAlquileres _serviciosAlquileres = new ServiciosAlquileres();
+
         public FrmAutos()
         {
             InitializeComponent();
         }
+
+        private Alquiler alquiler;
 
         private void FrmAutos_Load(object sender, EventArgs e)
         {
@@ -51,11 +55,13 @@ namespace AlquilerAutos.Windows
         {
             DatosDataGridView.Rows.Add(r);
         }
+
         private IServiciosAutos _servicio;
         private List<Auto> _lista;
         private IServiciosTipoDeVehiculo _serviciosTipoDeVehiculo = new ServiciosTiposDeVehiculos();
         private IServiciosCombustible _serviciosCombustible = new ServiciosCombustibles();
         private IServiciosMarca _serviciosMarca = new ServiciosMarcas();
+
         private void SetearFila(DataGridViewRow r, Auto auto)
         {
             var marca = _serviciosMarca.GetMarcaPorId(auto.marca.MarcaId);
@@ -73,6 +79,7 @@ namespace AlquilerAutos.Windows
             {
                 r.Cells[cmnActivo.Index].Value = "No Disponible";
             }
+
             r.Cells[cmnPrecio.Index].Value = auto.Precio;
             r.Cells[cmnPatente.Index].Value = auto.Patente;
             r.Tag = auto;
@@ -129,7 +136,7 @@ namespace AlquilerAutos.Windows
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 var r = DatosDataGridView.SelectedRows[0];
-                Auto auto = (Auto)r.Tag;
+                Auto auto = (Auto) r.Tag;
                 DialogResult dr =
                     MessageBox.Show($"¿Desea borrar de la lista el auto {auto.marca.NombreMarca} {auto.Modelo}?",
                         "Confirmar baja", MessageBoxButtons.YesNo,
@@ -171,8 +178,8 @@ namespace AlquilerAutos.Windows
             }
 
             DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            Auto auto = (Auto)r.Tag;
-            Auto autoAuxiliar = (Auto)auto.Clone();
+            Auto auto = (Auto) r.Tag;
+            Auto autoAuxiliar = (Auto) auto.Clone();
             FrmAutosAE frm = new FrmAutosAE();
             //auto = _servicio.GetAutoPorId(auto.AutoId);
             frm.Text = "Editar Auto";
@@ -193,7 +200,8 @@ namespace AlquilerAutos.Windows
                     _servicio.Guardar(auto);
 
                     SetearFila(r, auto);
-                    MessageBox.Show("Registro Editado con exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Registro Editado con exito", "Mensaje", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
                 }
                 else
@@ -209,6 +217,71 @@ namespace AlquilerAutos.Windows
 
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void BuscarToolStripButton_Click(object sender, EventArgs e)
+        {
+            FrmBuscarAutos frm = new FrmBuscarAutos();
+            frm.Text = "Seleccionar Auto";
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            try
+            {
+                Marca marca = frm.GetMarca();
+                _lista = _servicio.GetAuto(marca);
+                MostrarDatosEnGrilla();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+        }
+
+        private void ActualizarToolStripButton_Click(object sender, EventArgs e)
+        {
+            ActualizarGrilla();
+        }
+
+        private void ActualizarGrilla()
+        {
+            _lista = _servicio.GetAuto();
+            MostrarDatosEnGrilla();
+        }
+
+        private void AlquilarToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (DatosDataGridView.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+            DataGridViewRow r = DatosDataGridView.SelectedRows[0];
+            Auto auto = (Auto) r.Tag;
+            FrmAlquileresAE frm = new FrmAlquileresAE();
+            
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            /*auto = frm.GetAlquiler();
+            //Controlar repitencia
+
+            
+            _servicio.Guardar(auto);
+                SetearFila(r, auto);
+                MessageBox.Show("Registro Editado con exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            */
+
+
+
+
         }
     }
 }

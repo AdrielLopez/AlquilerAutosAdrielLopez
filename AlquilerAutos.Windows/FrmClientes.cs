@@ -135,7 +135,7 @@ namespace AlquilerAutos.Windows
             ClienteListDto ClienteListDtoAuxiliar = (ClienteListDto)ClienteListDto.Clone();
             FrmClientesAE frm = new FrmClientesAE();
             ClienteEditDto ClienteEditDto = _servicio.GetClientePorId(ClienteListDto.ClienteId);
-            frm.Text = "Editar Proveedor";
+            frm.Text = "Editar Cliente";
             frm.SetCliente(ClienteEditDto);
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.Cancel)

@@ -117,51 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="cmnMarca.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="cmnTipoDeVehiculo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="cmnModelo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="cmnCombustible.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="cmnActivo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="cmnPrecio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="cmnPatente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="AlquilarToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOYSURBVFhH7ZT9T1JhFMfdWlv/QFtbf1dr65fWL7kFSkCW
-        vcxqTbeSC76ViNwXuMgaViSJmbyopNgqs+xFUbHwpRcLzIpMvXh6zvUBRDHRNPvB7/Ydzz3Pc8/ncM69
-        N29X/7UuHuX3MUpeqy8U3jBKYZasIRfrC4S5Co1tmFFy+Y5Djj003cZUd7xur0Ej+o1l96Kung/QFoqD
-        Z3Quw+3v5mEoughDsUVoj8zLseefEjD8eQGevfkCrO5+nBTi2lQRjErIv1HaFG8Lz64CoxEeImCEd5C1
-        l8QQPvoVZL8ga8/ILNRecf1k1NZjNG3uMmhtI87OsTXhXl8o1fKbt1/KwBR8KiEXhIV1P5mA6+cd4zRt
-        brp2gj+gV4uznpFfq+AdpNXD5F+HSOv9BOB5Owf9BJiE932U5HOd9Fw4loBKrShVFrD7afr1xSi4Iybm
-        QXwlPJl0MEd4Mt5Q403olNxhmn59VRbZHTfvvtoSONrbOgA3ShqbafrVMqjFGvLqLCRnSqpdbHkeS8Fx
-        lviw4UMnz5/EMmZO1hjDNyH4dALa3K/g0dPJ1P7L8EzqeUEjq0IjVlI8abmSl/zdEQj0fgC7qVMi7Z9J
-        wjEpwvF1+xMci3RwXcCWuaDJ/hjY0iZoNAdgdHrpnLXKK9nrAxIyfF0RYEgRFE8L6BmD+84+ssGDYHo4
-        jx1Y+cAhqD8bnJzr6X0vw8PRpX38NZMisBOvx37AbWsQoeB2v4b24FhmATgCRiEksD1950Vwn7FIVSpB
-        Srbsb1190ppoLrbB43NWHC8gK2MEKIOSL3JpLYlvVxpgO31Lw/8oV7Jqik3LWMhPDpXYst60lR64YIPa
-        Qv4dxaZVpeIl9pQF7py1gK9YhN5zIoxf+vuC3l+2Qf8FETrOiuAkI0BGlYqTKDYtnNXUwD0YDDgheKsR
-        XNV2qCWHe67asybOxUFyr7HIIufCnKHAXZmBLIpNC4Mw3ZrhbxE31KgFOdkjUj0a19zJ3GLVJPY90rIq
-        75oFZLP9NA/R4jro0ppl47q+gMsp1nBayJoTTbFpYRBv+hf+YwFG8k9wfZ18kD4vu96MV+ZIXuOaYtPS
-        K/iFKbK5stqtNjKQRbFpkQ+R36cxR7HCbDduhTG3T13/xaBgfRSbFpMvHFzevm01YVFspnCzXG9MGa/p
-        1qa1oZw7XoCugJ0uL6tbOlxqAl0hF6Nbm9a6OXUKfhCr2hEruAFaxq52Snl5vwFnjnBjQcOkqgAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
 </root>

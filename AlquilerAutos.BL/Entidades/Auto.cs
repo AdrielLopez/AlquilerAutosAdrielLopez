@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,16 @@ namespace AlquilerAutos.BL.Entidades
         public string Patente { get; set; }
 
         public double Precio { get; set; }
+
+        private string modelocompleto;
+
+    
+        public string ModeloCompleto
+        {
+            get { return Modelo +" "+ combustible.NombreCombustible; }
+            set { modelocompleto = value; }
+        }
+
 
         public object Clone()
         {
